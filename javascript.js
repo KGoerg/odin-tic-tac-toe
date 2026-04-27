@@ -1,15 +1,19 @@
 const gameBoard = (() => {
     const gridArray = [
-        [0, 0, 0],
-        [0, 0, 0],
-        [0, 0, 0],
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
     ];
 
     let resetBoard;
 
     let gameResult;
 
+return {gridArray, resetBoard, gameResult};
+
 });
+
+console.log(gameBoard().gridArray[1][0]);
 
 const createPlayer = ((name, marker) => {
     const playerName = name;
