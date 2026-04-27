@@ -5,25 +5,22 @@ const gameBoard = (() => {
         [0, 0, 0],
     ];
 
-    const resetBoard;
+    let resetBoard;
 
-    const gameResult;
+    let gameResult;
 
 });
 
-const player = ((name, marker) => {
+const createPlayer = ((name, marker) => {
     const playerName = name;
 
-    const playerMarker = () => {
-        if (marker === "x" || marker === "o") {
-            return marker.toUpperCase();
-        } else if !(marker === "x" || marker === "X" || marker === "o" || marker === "O") {
-            return `Please enter "X" or "O"`;
-        }
-    });
+    const playerMarker = marker;
 
-    const winCount;
+    let score = 0;
+    const getWinCount = () => score;
+    const increaseWinCount = () => {score++;};
 
+    return {playerName, playerMarker, getWinCount, increaseWinCount}
 });
 
 const gameFlow = (() => {
