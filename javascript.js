@@ -1,9 +1,15 @@
 const gameBoard = (() => {
-    const gridArray = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-    ];
+    const rows = 3;
+    const columns = 3;
+    const board = [];
+
+    const boardArray = () => {
+        for (let i = 0; i < rows; i++) {
+        board[i] = [];
+        for (let j = 0; j < columns; j++ {
+            board[i][j] = 0;
+        })
+    }};
 
     let resetBoard;
 
@@ -33,4 +39,5 @@ const gameFlow = (() => {
     const increaseTurnNumber = () => {turnNumber++};
 
     return {getTurnNumber, increaseTurnNumber};
+    // Player 1 will always go first on odd turn numbers. Player 2 will always go second on even turn numbers. Use this info to make it so that Player 1 cannot click on even turn numbers and vice versa.
 })();
