@@ -11,9 +11,9 @@ const gameBoard = (() => {
 
 return {gridArray, resetBoard, gameResult};
 
-});
+})();
 
-console.log(gameBoard().gridArray[1][0]);
+console.log(gameBoard.gridArray[2][0]);
 
 const createPlayer = ((name, marker) => {
     const playerName = name;
@@ -25,8 +25,12 @@ const createPlayer = ((name, marker) => {
     const increaseWinCount = () => {score++;};
 
     return {playerName, playerMarker, getWinCount, increaseWinCount}
-});
+})();
 
 const gameFlow = (() => {
+    let turnNumber = 0;
+    const getTurnNumber = () => turnNumber;
+    const increaseTurnNumber = () => {turnNumber++};
 
-});
+    return {getTurnNumber, increaseTurnNumber};
+})();
