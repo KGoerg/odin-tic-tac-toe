@@ -1,25 +1,26 @@
 const gameBoard = (() => {
-    const rows = 3;
-    const columns = 3;
+    const rows = 2;
+    const columns = 2;
     const board = [];
 
     const boardArray = () => {
-        for (let i = 0; i < rows; i++) {
-        board[i] = [];
-        for (let j = 0; j < columns; j++ {
-            board[i][j] = 0;
-        })
-    }};
+        for (let i = 0; i <= rows; i++) {
+            board[i] = [];
+            for (let j = 0; j <= columns; j++) {
+                board[i][j] = 0;
+            }
+        }
+        return board;
+    };
 
     let resetBoard;
-
+    
     let gameResult;
 
-return {gridArray, resetBoard, gameResult};
-
+return {boardArray, resetBoard, gameResult};
 })();
 
-console.log(gameBoard.gridArray[2][0]);
+console.log(gameBoard.boardArray());
 
 const createPlayer = ((name, marker) => {
     const playerName = name;
