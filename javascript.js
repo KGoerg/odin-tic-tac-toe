@@ -3,24 +3,23 @@ const gameBoard = (() => {
     const columns = 2;
     const board = [];
 
-    const boardArray = () => {
-        for (let i = 0; i <= rows; i++) {
-            board[i] = [];
-            for (let j = 0; j <= columns; j++) {
-                board[i][j] = 0;
-            }
+    //Creates game board
+    for (let i = 0; i <= rows; i++) {
+        board[i] = [];
+        for (let j = 0; j <= columns; j++) {
+            board[i][j] = 0;
         }
-        return board;
     };
 
     let resetBoard;
     
     let gameResult;
 
-return {boardArray, resetBoard, gameResult};
+return {board, resetBoard, gameResult};
 })();
 
-console.log(gameBoard.boardArray());
+//Allows display of game board and, if needed, to display specific elements within the array
+console.log(gameBoard.board)
 
 const createPlayer = ((name, marker) => {
     const playerName = name;
