@@ -38,7 +38,28 @@ console.log(gameBoard.board)
 // console.log(playerOne.playerName);
 // console.log(playerOne.playerMarker);
 
-const gameFlow = (() => {
+function gameFlow() {
+
+    const playerOneName = "Player One";
+    const playerTwoName = "Player Two";
+
+    const players = [
+        {
+            name: playerOneName,
+            marker: "X",
+        },
+        {
+            name: playerTwoName,
+            marker: "O",
+        }
+    ];
+
+    let activePlayer = players[0];
+
+    const switchPlayerTurn = () => {
+        activePlayer = activePlayer === players[0] ? players[1] : players[0];
+    }
+
     let turnNumber = 0;
     const getTurnNumber = () => turnNumber;
     const increaseTurnNumber = () => {turnNumber++};
