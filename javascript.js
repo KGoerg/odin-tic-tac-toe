@@ -21,17 +21,22 @@ return {board, resetBoard, gameResult};
 //Allows display of game board and, if needed, to display specific elements within the array
 console.log(gameBoard.board)
 
-const createPlayer = ((name, marker) => {
-    const playerName = name;
+//Hiding this for now -- might want player info inside of the gameFlow module to help control turn order.
+// function createPlayer (name, marker) {
+//     const playerName = name;
 
-    const playerMarker = marker;
+//     const playerMarker = marker;
 
-    let score = 0;
-    const getWinCount = () => score;
-    const increaseWinCount = () => {score++;};
+//     let score = 0;
+//     const getWinCount = () => score;
+//     const increaseWinCount = () => {score++;};
 
-    return {playerName, playerMarker, getWinCount, increaseWinCount}
-})();
+//     return {playerName, playerMarker, getWinCount, increaseWinCount}
+// };
+
+// const playerOne = createPlayer("Kamie", "X");
+// console.log(playerOne.playerName);
+// console.log(playerOne.playerMarker);
 
 const gameFlow = (() => {
     let turnNumber = 0;
