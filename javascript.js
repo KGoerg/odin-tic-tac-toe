@@ -38,7 +38,7 @@ playerOne.increaseWinCount();
 console.log(playerOne.getWinCount())
 
 //Control turn order and rounds
-function gameFlow() {
+const gameFlow = (() => {
 
     const playerOneName = "Player One";
     const playerTwoName = "Player Two";
@@ -61,14 +61,16 @@ function gameFlow() {
     }
 
     const getActivePlayer = () => activePlayer;
+    
+    return {switchPlayerTurn, getActivePlayer};
+})();
 
-    switchPlayerTurn();
-    getActivePlayer();
-
-    let turnNumber = 0;
-    const getTurnNumber = () => turnNumber;
-    const increaseTurnNumber = () => {turnNumber++};
-
-    return {getTurnNumber, increaseTurnNumber};
-    // Player 1 will always go first on odd turn numbers. Player 2 will always go second on even turn numbers. Use this info to make it so that Player 1 cannot click on even turn numbers and vice versa.
-};
+//Check that turns are properly switching
+gameFlow.switchPlayerTurn();
+console.log(gameFlow.getActivePlayer());
+gameFlow.switchPlayerTurn();
+console.log(gameFlow.getActivePlayer());
+gameFlow.switchPlayerTurn();
+console.log(gameFlow.getActivePlayer());
+gameFlow.switchPlayerTurn();
+console.log(gameFlow.getActivePlayer());
