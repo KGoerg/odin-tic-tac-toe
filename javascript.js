@@ -33,6 +33,7 @@ function createPlayer (name) {
 };
 
 const playerOne = createPlayer("Kamie");
+const playerTwo = createPlayer("Aaron");
 playerOne.increaseWinCount();
 playerOne.increaseWinCount();
 console.log(playerOne.getWinCount())
@@ -40,8 +41,8 @@ console.log(playerOne.getWinCount())
 //Control turn order and rounds
 const gameFlow = (() => {
 
-    const playerOneName = "Player One";
-    const playerTwoName = "Player Two";
+    const playerOneName = `Player One: ${playerOne.playerName}`;
+    const playerTwoName = `Player Two: ${playerTwo.playerName}`;
 
     const players = [
         {
@@ -66,6 +67,7 @@ const gameFlow = (() => {
 })();
 
 //Check that turns are properly switching
+console.log(gameFlow.getActivePlayer());
 gameFlow.switchPlayerTurn();
 console.log(gameFlow.getActivePlayer());
 gameFlow.switchPlayerTurn();
