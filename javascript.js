@@ -21,23 +21,23 @@ return {board, resetBoard, gameResult};
 //Allows display of game board and, if needed, to display specific elements within the array
 console.log(gameBoard.board)
 
-//Hiding this for now -- might want player info inside of the gameFlow module to help control turn order.
-// function createPlayer (name, marker) {
-//     const playerName = name;
+//Create player and attach scorekeeping
+function createPlayer (name) {
+    const playerName = name;
 
-//     const playerMarker = marker;
+    let score = 0;
+    const getWinCount = () => score;
+    const increaseWinCount = () => {score++;};
 
-//     let score = 0;
-//     const getWinCount = () => score;
-//     const increaseWinCount = () => {score++;};
+    return {playerName, getWinCount, increaseWinCount}
+};
 
-//     return {playerName, playerMarker, getWinCount, increaseWinCount}
-// };
+const playerOne = createPlayer("Kamie");
+playerOne.increaseWinCount();
+playerOne.increaseWinCount();
+console.log(playerOne.getWinCount())
 
-// const playerOne = createPlayer("Kamie", "X");
-// console.log(playerOne.playerName);
-// console.log(playerOne.playerMarker);
-
+//Control turn order and rounds
 function gameFlow() {
 
     const playerOneName = "Player One";
@@ -60,10 +60,15 @@ function gameFlow() {
         activePlayer = activePlayer === players[0] ? players[1] : players[0];
     }
 
+    const getActivePlayer = () => activePlayer;
+
+    switchPlayerTurn();
+    getActivePlayer();
+
     let turnNumber = 0;
     const getTurnNumber = () => turnNumber;
     const increaseTurnNumber = () => {turnNumber++};
 
     return {getTurnNumber, increaseTurnNumber};
     // Player 1 will always go first on odd turn numbers. Player 2 will always go second on even turn numbers. Use this info to make it so that Player 1 cannot click on even turn numbers and vice versa.
-})();
+};
