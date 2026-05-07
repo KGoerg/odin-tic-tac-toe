@@ -1,7 +1,7 @@
 const gameBoard = (() => {
     const rows = 2;
     const columns = 2;
-    const board = [];
+    let board = [];
 
     //Creates game board
     for (let i = 0; i <= rows; i++) {
@@ -11,7 +11,16 @@ const gameBoard = (() => {
         }
     };
 
-    let resetBoard;
+    const resetBoard = () => {
+        let board = [];
+        for (let i = 0; i <= rows; i++) {
+        board[i] = [];
+        for (let j = 0; j <= columns; j++) {
+            board[i][j] = 0;
+        }
+    };
+    return board;
+    }
     
     let gameResult;
 
