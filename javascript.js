@@ -20,11 +20,24 @@ const gameBoard = (() => {
         }
     };
     return board;
-    }
+    };
+
+    //This works. Gets the marker at the specific board index.
+    const playerTurn = (index1, index2) => {
+        const boardPosition = gameBoard.board[index1][index2];
+        console.log(boardPosition);
+        };
+
+    // //Need to check if this works
+    // const checkExistingMarker = () => {
+    //     if (!gameBoard.board.includes(gameFlow.getActivePlayer().marker) || (gameBoard.board.includes(gameFlow.activePlayer().marker))) {
+    //         console.log("You cannot select this space.")
+    //     }
+    // };
     
     let gameResult;
 
-return {board, resetBoard, gameResult};
+return {board, resetBoard, playerTurn};
 })();
 
 //Allows display of game board and, if needed, to display specific elements within the array
@@ -71,6 +84,11 @@ const gameFlow = (() => {
     }
 
     const getActivePlayer = () => activePlayer;
+
+//Working on a "getWinner" function to announce the winner. Might want to use array.every method.
+    const getWinner = () => {
+
+    }
     
     return {switchPlayerTurn, getActivePlayer};
 })();
@@ -79,9 +97,5 @@ const gameFlow = (() => {
 console.log(gameFlow.getActivePlayer());
 gameFlow.switchPlayerTurn();
 console.log(gameFlow.getActivePlayer());
-gameFlow.switchPlayerTurn();
-console.log(gameFlow.getActivePlayer());
-gameFlow.switchPlayerTurn();
-console.log(gameFlow.getActivePlayer());
-gameFlow.switchPlayerTurn();
-console.log(gameFlow.getActivePlayer());
+gameBoard.board[0][0] = gameFlow.getActivePlayer().marker;
+console.log(gameBoard.board);
