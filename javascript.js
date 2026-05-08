@@ -22,18 +22,18 @@ const gameBoard = (() => {
     return board;
     };
 
-    //This works. Gets the marker at the specific board index.
     const playerTurn = (index1, index2) => {
-        const boardPosition = gameBoard.board[index1][index2];
+        let boardPosition = gameBoard.board[index1][index2];
         console.log(boardPosition);
+        console.log(gameFlow.getActivePlayer().marker);
+        //This works to a point. Gets the marker at the specific board index and shows current player's marker. I need to figure out how to get the current index to become the player's marker. Will need to edit the array itself. boardPosition will be useful for the tentative code below to make sure players can't override each other's spaces.
+        
+        // if (boardPosition !== gameFlow.getActivePlayer().marker) {
+        //     console.log("You cannot select this square.")
+        // } else {
+        //     boardPosition = gameFlow.getActivePlayer().marker;
+        // }
         };
-
-    // //Need to check if this works
-    // const checkExistingMarker = () => {
-    //     if (!gameBoard.board.includes(gameFlow.getActivePlayer().marker) || (gameBoard.board.includes(gameFlow.activePlayer().marker))) {
-    //         console.log("You cannot select this space.")
-    //     }
-    // };
     
     let gameResult;
 
@@ -94,8 +94,15 @@ const gameFlow = (() => {
 })();
 
 //Check that turns are properly switching
+// console.log(gameFlow.getActivePlayer());
+// gameFlow.switchPlayerTurn();
+// console.log(gameFlow.getActivePlayer());
+// gameBoard.board[0][0] = gameFlow.getActivePlayer().marker;
+// console.log(gameBoard.board);
+// gameFlow.switchPlayerTurn();
+// console.log(gameFlow.getActivePlayer());
+// gameBoard.playerTurn(0,1);
+
 console.log(gameFlow.getActivePlayer());
-gameFlow.switchPlayerTurn();
-console.log(gameFlow.getActivePlayer());
-gameBoard.board[0][0] = gameFlow.getActivePlayer().marker;
+gameBoard.playerTurn(0,0);
 console.log(gameBoard.board);
