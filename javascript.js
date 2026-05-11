@@ -12,13 +12,11 @@ const gameBoard = (() => {
     };
 
     const resetBoard = () => {
-        let board = [];
         for (let i = 0; i <= rows; i++) {
-        board[i] = [];
         for (let j = 0; j <= columns; j++) {
             board[i][j] = 0;
         }
-    };
+    }
     return board;
     };
 
@@ -90,16 +88,7 @@ const gameFlow = (() => {
     return {switchPlayerTurn, getActivePlayer};
 })();
 
-//Check that turns are properly switching
-// console.log(gameFlow.getActivePlayer());
-// gameFlow.switchPlayerTurn();
-// console.log(gameFlow.getActivePlayer());
-// gameBoard.board[0][0] = gameFlow.getActivePlayer().marker;
-// console.log(gameBoard.board);
-// gameFlow.switchPlayerTurn();
-// console.log(gameFlow.getActivePlayer());
-// gameBoard.playerTurn(0,1);
-
+//Testing playing the game
 console.log(gameFlow.getActivePlayer());
 gameBoard.playerTurn(0,0);
 console.log(gameBoard.board);
@@ -110,4 +99,9 @@ console.log(gameBoard.board);
 gameFlow.switchPlayerTurn();
 console.log(gameFlow.getActivePlayer());
 gameBoard.playerTurn(0,1);
+console.log(gameBoard.board);
+gameBoard.resetBoard();
+console.log(gameBoard.board);
+console.log(gameFlow.getActivePlayer());
+gameBoard.playerTurn(0,0);
 console.log(gameBoard.board);
