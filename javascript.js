@@ -88,36 +88,36 @@ const gameFlow = (() => {
         //Determine Player One winner
         if (
             //First column down
-            gameBoard.board[0][0] && gameBoard.board[1][0] && gameBoard.board[2][0] === "X" ||
+            gameBoard.board[0][0] === "X" && gameBoard.board[1][0] === "X" && gameBoard.board[2][0] === "X" ||
             
             // Second column down
-            gameBoard.board[0][1] && gameBoard.board[1][1] && gameBoard.board[2][1] === "X" ||
+            gameBoard.board[0][1] === "X" && gameBoard.board[1][1] === "X" && gameBoard.board[2][1] === "X" ||
             
             //Third column down
-            gameBoard.board[0][2] && gameBoard.board[1][2] && gameBoard.board[2][2] === "X" ||
+            gameBoard.board[0][2] === "X" && gameBoard.board[1][2] === "X" && gameBoard.board[2][2] === "X" ||
         
             //Left to right diagonal
-            gameBoard.board[0][0] && gameBoard.board[1][1] && gameBoard.board[2][2] === "X" ||
+            gameBoard.board[0][0] === "X" && gameBoard.board[1][1] === "X" && gameBoard.board[2][2] === "X" ||
             
             //Right to left diagonal
-            gameBoard.board[2][0] && gameBoard.board[1][1] && gameBoard.board[0][2] === "X" ) {
+            gameBoard.board[0][2] === "X" && gameBoard.board[1][1] === "X" && gameBoard.board[2][0] === "X" ) {
             return playerOneWins;
         //Determine Player Two winner
         } else if (
             //First column down
-            gameBoard.board[0][0] && gameBoard.board[1][0] && gameBoard.board[2][0] === "O" ||
+            gameBoard.board[0][0] === "O" && gameBoard.board[1][0] === "O" && gameBoard.board[2][0] === "O" ||
             
             // Second column down
-            gameBoard.board[0][1] && gameBoard.board[1][1] && gameBoard.board[2][1] === "O" ||
+            gameBoard.board[0][1] === "O" && gameBoard.board[1][1] === "O" && gameBoard.board[2][1] === "O" ||
             
             //Third column down
-            gameBoard.board[0][2] && gameBoard.board[1][2] && gameBoard.board[2][2] === "O" ||
+            gameBoard.board[0][2] === "O" && gameBoard.board[1][2] === "O" && gameBoard.board[2][2] === "O" ||
         
             //Left to right diagonal
-            gameBoard.board[0][0] && gameBoard.board[1][1] && gameBoard.board[2][2] === "O" ||
+            gameBoard.board[0][0] === "O" && gameBoard.board[1][1] === "O" && gameBoard.board[2][2] === "O" ||
         
             //Right to left diagonal
-            gameBoard.board[2][0] && gameBoard.board[1][1] && gameBoard.board[0][2] === "O" ) {
+            gameBoard.board[0][2] === "O" && gameBoard.board[1][1] === "O" && gameBoard.board[2][0] === "O" ) {
             return playerTwoWins;
         } else {
             return noWinner;
@@ -125,7 +125,7 @@ const gameFlow = (() => {
     };
 
     const getTie = () => {
-        if (turnNumber === 9 && getWinner != playerOneWins || playerTwoWins) {
+        if (turnNumber === 10 && getWinner != playerOneWins || playerTwoWins) {
             return "It's a tie!";
         }
     }
@@ -151,23 +151,67 @@ console.log(gameBoard.board);
 console.log(gameFlow.getWinner());
 
 //Turn 3
+gameFlow.switchPlayerTurn();
+gameFlow.increaseTurnNumber();
+console.log(gameFlow.getTurnNumber());
+console.log(gameFlow.getActivePlayer());
+gameBoard.playerTurn(1,0);
+console.log(gameBoard.board);
+console.log(gameFlow.getWinner());
 
+//Turn 4
+gameFlow.switchPlayerTurn();
+gameFlow.increaseTurnNumber();
+console.log(gameFlow.getTurnNumber());
+console.log(gameFlow.getActivePlayer());
+gameBoard.playerTurn(0,2);
+console.log(gameBoard.board);
+console.log(gameFlow.getWinner());
 
+// //Turn 5
+gameFlow.switchPlayerTurn();
+gameFlow.increaseTurnNumber();
+console.log(gameFlow.getTurnNumber());
+console.log(gameFlow.getActivePlayer());
+gameBoard.playerTurn(1,1);
+console.log(gameBoard.board);
+console.log(gameFlow.getWinner());
 
-// console.log(gameFlow.getWinner());
+// //Turn 6
+gameFlow.switchPlayerTurn();
+gameFlow.increaseTurnNumber();
+console.log(gameFlow.getTurnNumber());
+console.log(gameFlow.getActivePlayer());
+gameBoard.playerTurn(1,2);
+console.log(gameBoard.board);
+console.log(gameFlow.getWinner());
+
+// //Turn 7
+gameFlow.switchPlayerTurn();
+gameFlow.increaseTurnNumber();
+console.log(gameFlow.getTurnNumber());
+console.log(gameFlow.getActivePlayer());
+gameBoard.playerTurn(2,0);
+console.log(gameBoard.board);
+console.log(gameFlow.getWinner());
+
+// //Turn 8
 // gameFlow.switchPlayerTurn();
-// console.log(gameFlow.increaseTurnNumber());
+// gameFlow.increaseTurnNumber();
 // console.log(gameFlow.getTurnNumber());
 // console.log(gameFlow.getActivePlayer());
-// gameBoard.playerTurn(1,1);
+// gameBoard.playerTurn(2,1);
 // console.log(gameBoard.board);
 // console.log(gameFlow.getWinner());
+
+//Turn 9
+// gameFlow.switchPlayerTurn();
+// gameFlow.increaseTurnNumber();
+// console.log(gameFlow.getTurnNumber());
 // console.log(gameFlow.getActivePlayer());
-// gameBoard.playerTurn(2,0);
-// console.log(gameFlow.getWinner());
+// gameBoard.playerTurn(2,1);
 // console.log(gameBoard.board);
-// // gameBoard.playerTurn(1,0);
-// // console.log(gameBoard.board);
-// // gameBoard.playerTurn(2,0);
-// // console.log(gameFlow.getWinner());
+// console.log(gameFlow.getWinner());
+
+
 // // gameBoard.resetBoard();
