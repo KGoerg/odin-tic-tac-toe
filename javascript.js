@@ -82,6 +82,9 @@ const gameFlow = (() => {
 
 //Working on a "getWinner" function to announce the winner. Might want to use array.every method.
     const getWinner = () => {
+        const playerOneWins = `Player One: ${playerOne.playerName} wins!`;
+        const playerTwoWins = `Player Two: ${playerTwo.playerName} wins!`;
+        const noWinner = "No winner yet!";
         //Determine Player One winner
         if (
             //First column down
@@ -98,7 +101,7 @@ const gameFlow = (() => {
             
             //Right to left diagonal
             gameBoard.board[2][0] && gameBoard.board[1][1] && gameBoard.board[0][2] === "X" ) {
-            console.log(`Player One: ${playerOne.playerName} wins!`);
+            return playerOneWins;
         //Determine Player Two winner
         } else if (
             //First column down
@@ -115,43 +118,56 @@ const gameFlow = (() => {
         
             //Right to left diagonal
             gameBoard.board[2][0] && gameBoard.board[1][1] && gameBoard.board[0][2] === "O" ) {
-            console.log(`Player Two: ${playerTwo.playerName} wins!`);
+            return playerTwoWins;
         } else {
-            console.log("No winner yet!")
+            return noWinner;
         }
     };
+
+    const getTie = () => {
+        if (turnNumber === 9 && getWinner != playerOneWins || playerTwoWins) {
+            return "It's a tie!";
+        }
+    }
     
-    return {switchPlayerTurn, getActivePlayer, getTurnNumber, increaseTurnNumber, getWinner};
+    return {switchPlayerTurn, getActivePlayer, getTurnNumber, increaseTurnNumber, getWinner, getTie};
 })();
 
 //Testing playing the game
+//Turn 1
 console.log(gameFlow.getTurnNumber());
 console.log(gameFlow.getActivePlayer());
 gameBoard.playerTurn(0,1);
 console.log(gameBoard.board);
-gameFlow.getWinner();
+console.log(gameFlow.getWinner());
+
+//Turn 2
 gameFlow.switchPlayerTurn();
-console.log(gameFlow.increaseTurnNumber());
+gameFlow.increaseTurnNumber();
 console.log(gameFlow.getTurnNumber());
 console.log(gameFlow.getActivePlayer());
 gameBoard.playerTurn(0,0);
 console.log(gameBoard.board);
-gameFlow.getWinner();
-gameFlow.switchPlayerTurn();
-console.log(gameFlow.increaseTurnNumber());
-console.log(gameFlow.getTurnNumber());
-console.log(gameFlow.getActivePlayer());
+console.log(gameFlow.getWinner());
+
+//Turn 3
+
+
+
+// console.log(gameFlow.getWinner());
+// gameFlow.switchPlayerTurn();
+// console.log(gameFlow.increaseTurnNumber());
+// console.log(gameFlow.getTurnNumber());
+// console.log(gameFlow.getActivePlayer());
 // gameBoard.playerTurn(1,1);
 // console.log(gameBoard.board);
-// gameFlow.getWinner();
+// console.log(gameFlow.getWinner());
 // console.log(gameFlow.getActivePlayer());
-// gameBoard.playerTurn(2,1);
-// gameFlow.getWinner();
-
-// console.log(gameBoard.board);
-// gameBoard.playerTurn(1,0);
-// console.log(gameBoard.board);
 // gameBoard.playerTurn(2,0);
-// gameFlow.getWinner();
-
-// gameBoard.resetBoard();
+// console.log(gameFlow.getWinner());
+// console.log(gameBoard.board);
+// // gameBoard.playerTurn(1,0);
+// // console.log(gameBoard.board);
+// // gameBoard.playerTurn(2,0);
+// // console.log(gameFlow.getWinner());
+// // gameBoard.resetBoard();
