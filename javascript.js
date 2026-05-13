@@ -22,7 +22,6 @@ const gameBoard = (() => {
 
     const playerTurn = (index1, index2) => {
         let boardPosition = gameBoard.board[index1][index2];
-        console.log(boardPosition);
         if (boardPosition === 0) {
             board[index1][index2] = gameFlow.getActivePlayer().marker;
         } else if (boardPosition !== 0) {
@@ -77,6 +76,10 @@ const gameFlow = (() => {
 
     const getActivePlayer = () => activePlayer;
 
+    let turnNumber = 1;
+    const getTurnNumber = () => `Turn Number: ${turnNumber}`;
+    const increaseTurnNumber = () => turnNumber++;
+
 //Working on a "getWinner" function to announce the winner. Might want to use array.every method.
     const getWinner = () => {
         //Determine Player One winner
@@ -92,9 +95,11 @@ const gameFlow = (() => {
         
             //Left to right diagonal
             gameBoard.board[0][0] && gameBoard.board[1][1] && gameBoard.board[2][2] === "X" ||
-        
+            
+            //Right to left diagonal
             gameBoard.board[2][0] && gameBoard.board[1][1] && gameBoard.board[0][2] === "X" ) {
             console.log(`Player One: ${playerOne.playerName} wins!`);
+        //Determine Player Two winner
         } else if (
             //First column down
             gameBoard.board[0][0] && gameBoard.board[1][0] && gameBoard.board[2][0] === "O" ||
@@ -108,6 +113,7 @@ const gameFlow = (() => {
             //Left to right diagonal
             gameBoard.board[0][0] && gameBoard.board[1][1] && gameBoard.board[2][2] === "O" ||
         
+            //Right to left diagonal
             gameBoard.board[2][0] && gameBoard.board[1][1] && gameBoard.board[0][2] === "O" ) {
             console.log(`Player Two: ${playerTwo.playerName} wins!`);
         } else {
@@ -115,27 +121,32 @@ const gameFlow = (() => {
         }
     };
     
-    return {switchPlayerTurn, getActivePlayer, getWinner};
+    return {switchPlayerTurn, getActivePlayer, getTurnNumber, increaseTurnNumber, getWinner};
 })();
 
 //Testing playing the game
+console.log(gameFlow.getTurnNumber());
 console.log(gameFlow.getActivePlayer());
 gameBoard.playerTurn(0,1);
 console.log(gameBoard.board);
 gameFlow.getWinner();
 gameFlow.switchPlayerTurn();
+console.log(gameFlow.increaseTurnNumber());
+console.log(gameFlow.getTurnNumber());
 console.log(gameFlow.getActivePlayer());
 gameBoard.playerTurn(0,0);
 console.log(gameBoard.board);
 gameFlow.getWinner();
 gameFlow.switchPlayerTurn();
+console.log(gameFlow.increaseTurnNumber());
+console.log(gameFlow.getTurnNumber());
 console.log(gameFlow.getActivePlayer());
-gameBoard.playerTurn(1,1);
-console.log(gameBoard.board);
-gameFlow.getWinner();
-console.log(gameFlow.getActivePlayer());
-gameBoard.playerTurn(2,1);
-gameFlow.getWinner();
+// gameBoard.playerTurn(1,1);
+// console.log(gameBoard.board);
+// gameFlow.getWinner();
+// console.log(gameFlow.getActivePlayer());
+// gameBoard.playerTurn(2,1);
+// gameFlow.getWinner();
 
 // console.log(gameBoard.board);
 // gameBoard.playerTurn(1,0);
