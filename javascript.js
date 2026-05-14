@@ -125,8 +125,10 @@ const gameFlow = (() => {
     };
 
     const checkTie = () => {
-        if (turnNumber === 9 && getWinner != playerOneWins && getWinner != playerTwoWins) {
+        if (turnNumber === 9 && getWinner() === noWinnerYet) {
             return "It's a tie!";
+        } else if (turnNumber === 9 && getWinner() === playerOneWins || getWinner() === playerTwoWins) {
+            return "We have a winner!";
         } else {
             return "Cannot check for a tie yet."
         }
@@ -202,16 +204,17 @@ gameFlow.switchPlayerTurn();
 gameFlow.increaseTurnNumber();
 console.log(gameFlow.getTurnNumber());
 console.log(gameFlow.getActivePlayer());
-gameBoard.playerTurn(2,1);
+gameBoard.playerTurn(2,2);
 console.log(gameBoard.board);
 console.log(gameFlow.getWinner());
+console.log(gameFlow.checkTie());
 
 //Turn 9 X
 gameFlow.switchPlayerTurn();
 gameFlow.increaseTurnNumber();
 console.log(gameFlow.getTurnNumber());
 console.log(gameFlow.getActivePlayer());
-gameBoard.playerTurn(2,2);
+gameBoard.playerTurn(2,1);
 console.log(gameBoard.board);
 console.log(gameFlow.getWinner());
 
