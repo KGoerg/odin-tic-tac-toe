@@ -27,6 +27,7 @@ const gameBoard = (() => {
         let boardPosition = gameBoard.board[index1][index2];
         if (boardPosition === 0) {
             board[index1][index2] = gameFlow.getActivePlayer().marker;
+            gameFlow.increaseTurnNumber();
             gameBoard.turnFailed = false;
         } else if (boardPosition !== 0) {
             gameBoard.turnFailed = true;
@@ -167,7 +168,7 @@ console.log(gameBoard.board);
 console.log(gameFlow.checkTie());
 console.log(gameFlow.getWinner());
 console.log(gameFlow.declareGameOver());
-gameFlow.increaseTurnNumber();
+// gameFlow.increaseTurnNumber();
 gameFlow.switchPlayerTurn();
 
 // //Turn 2 O
@@ -178,7 +179,7 @@ console.log(gameBoard.board);
 console.log(gameFlow.checkTie());
 console.log(gameFlow.getWinner());
 console.log(gameFlow.declareGameOver());
-gameFlow.increaseTurnNumber();
+// gameFlow.increaseTurnNumber();
 gameFlow.switchPlayerTurn();
 console.log(gameBoard.turnFailed);
 
@@ -190,7 +191,7 @@ console.log(gameBoard.board);
 console.log(gameFlow.checkTie());
 console.log(gameFlow.getWinner());
 console.log(gameFlow.declareGameOver());
-gameFlow.increaseTurnNumber();
+// gameFlow.increaseTurnNumber();
 gameFlow.switchPlayerTurn();
 
 // // // // //Turn 4 O
