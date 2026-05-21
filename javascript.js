@@ -95,6 +95,7 @@ const gameFlow = (() => {
     const playerTwoWins = `Player Two: ${playerTwo.playerName} wins!`;
     const noWinnerYet = "No winner yet!";
 
+    let gameOverBoolean = false;
     const getWinner = () => {
         //Determine Player One winner
         if (
@@ -112,6 +113,7 @@ const gameFlow = (() => {
             
             //Right to left diagonal
             gameBoard.board[0][2] === "X" && gameBoard.board[1][1] === "X" && gameBoard.board[2][0] === "X" ) {
+            gameFlow.gameOverBoolean = true;
             return playerOneWins;
         //Determine Player Two winner
         } else if (
@@ -129,6 +131,7 @@ const gameFlow = (() => {
         
             //Right to left diagonal
             gameBoard.board[0][2] === "O" && gameBoard.board[1][1] === "O" && gameBoard.board[2][0] === "O" ) {
+            gameFlow.gameOverBoolean = true;
             return playerTwoWins;
         } else {
             return noWinnerYet;
@@ -141,9 +144,10 @@ const gameFlow = (() => {
     const gameOver = "GAME OVER!"
 
     const checkTie = () => {
-        if (turnNumber === 9 && getWinner() === noWinnerYet) {
+        if (turnNumber === 10 && getWinner() === noWinnerYet) {
+            gameFlow.gameOverBoolean = true;
             return confirmTie;
-        } else if (turnNumber === 9 && getWinner() === playerOneWins || getWinner() === playerTwoWins) {
+        } else if (turnNumber === 10 && getWinner() === playerOneWins || getWinner() === playerTwoWins) {
             return confirmWinner;
         } else {
             return cannotCheckTie;
@@ -151,50 +155,54 @@ const gameFlow = (() => {
         };
 
     const declareGameOver = () => {
-        if (turnNumber === 9 && getWinner() === playerOneWins || getWinner() === playerTwoWins || checkTie() === confirmTie) {
-            return gameOver;
+        if (gameFlow.gameOverBoolean === true) {
+            console.log(gameOver);
         }
     };
+
+    //Need to figure out how to fully reset everything, not just the 2D board array.
+    const resetGame = () => {
+        if (turnNumber === 1) {
+            gameFlow.activePlayer = gameFlow.players[0];
+        }
+    }
     
-    return {switchPlayerTurn, getActivePlayer, getTurnNumber, resetTurnNumber, increaseTurnNumber, getWinner, checkTie, declareGameOver};
+    return {switchPlayerTurn, getActivePlayer, getTurnNumber, resetTurnNumber, increaseTurnNumber, getWinner, checkTie, declareGameOver, resetGame};
 })();
 
 //Testing playing the game. This is a tie:
 //Turn 1 X
-console.log(gameFlow.getTurnNumber());
-console.log(gameFlow.getActivePlayer());
-console.log(gameBoard.playerTurn(0,1));
-console.log(gameBoard.board);
-console.log(gameFlow.checkTie());
-console.log(gameFlow.getWinner());
-console.log(gameFlow.declareGameOver());
-// gameFlow.increaseTurnNumber();
-gameFlow.switchPlayerTurn();
+// console.log(gameFlow.getTurnNumber());
+// console.log(gameFlow.getActivePlayer());
+// console.log(gameBoard.playerTurn(0,1));
+// console.log(gameBoard.board);
+// console.log(gameFlow.checkTie());
+// console.log(gameFlow.getWinner());
+// console.log(gameFlow.declareGameOver());
+// gameFlow.switchPlayerTurn();
 
-// //Turn 2 O
-console.log(gameFlow.getTurnNumber());
-console.log(gameFlow.getActivePlayer());
-console.log(gameBoard.playerTurn(0,1));
-console.log(gameBoard.board);
-console.log(gameFlow.checkTie());
-console.log(gameFlow.getWinner());
-console.log(gameFlow.declareGameOver());
-// gameFlow.increaseTurnNumber();
-gameFlow.switchPlayerTurn();
-console.log(gameBoard.turnFailed);
+// // //Turn 2 O
+// console.log(gameFlow.getTurnNumber());
+// console.log(gameFlow.getActivePlayer());
+// console.log(gameBoard.playerTurn(0,1));
+// console.log(gameBoard.board);
+// console.log(gameFlow.checkTie());
+// console.log(gameFlow.getWinner());
+// console.log(gameFlow.declareGameOver());
+// gameFlow.switchPlayerTurn();
+// console.log(gameBoard.turnFailed);
 
-// // // // //Turn 3 X
-console.log(gameFlow.getTurnNumber());
-console.log(gameFlow.getActivePlayer());
-console.log(gameBoard.playerTurn(1,0));
-console.log(gameBoard.board);
-console.log(gameFlow.checkTie());
-console.log(gameFlow.getWinner());
-console.log(gameFlow.declareGameOver());
-// gameFlow.increaseTurnNumber();
-gameFlow.switchPlayerTurn();
+// // // // // //Turn 2 (Again) O
+// console.log(gameFlow.getTurnNumber());
+// console.log(gameFlow.getActivePlayer());
+// console.log(gameBoard.playerTurn(1,0));
+// console.log(gameBoard.board);
+// console.log(gameFlow.checkTie());
+// console.log(gameFlow.getWinner());
+// console.log(gameFlow.declareGameOver());
+// gameFlow.switchPlayerTurn();
 
-// // // // //Turn 4 O
+// // // // // //Turn 3 X
 // console.log(gameFlow.getTurnNumber());
 // console.log(gameFlow.getActivePlayer());
 // console.log(gameBoard.playerTurn(0,2));
@@ -202,10 +210,9 @@ gameFlow.switchPlayerTurn();
 // console.log(gameFlow.checkTie());
 // console.log(gameFlow.getWinner());
 // console.log(gameFlow.declareGameOver());
-// gameFlow.increaseTurnNumber();
 // gameFlow.switchPlayerTurn();
 
-// // // // // //Turn 5 X
+// // // // // // //Turn 4 O
 // console.log(gameFlow.getTurnNumber());
 // console.log(gameFlow.getActivePlayer());
 // console.log(gameBoard.playerTurn(1,1));
@@ -213,10 +220,9 @@ gameFlow.switchPlayerTurn();
 // console.log(gameFlow.checkTie());
 // console.log(gameFlow.getWinner());
 // console.log(gameFlow.declareGameOver());
-// gameFlow.increaseTurnNumber();
 // gameFlow.switchPlayerTurn();
 
-// // // // //Turn 6 O
+// // // // // //Turn 5 X
 // console.log(gameFlow.getTurnNumber());
 // console.log(gameFlow.getActivePlayer());
 // console.log(gameBoard.playerTurn(1,2));
@@ -224,10 +230,9 @@ gameFlow.switchPlayerTurn();
 // console.log(gameFlow.checkTie());
 // console.log(gameFlow.getWinner());
 // console.log(gameFlow.declareGameOver());
-// gameFlow.increaseTurnNumber();
 // gameFlow.switchPlayerTurn();
 
-// // // // //Turn 7 X
+// // // // // //Turn 6 O
 // console.log(gameFlow.getTurnNumber());
 // console.log(gameFlow.getActivePlayer());
 // console.log(gameBoard.playerTurn(2,0));
@@ -235,10 +240,9 @@ gameFlow.switchPlayerTurn();
 // console.log(gameFlow.checkTie());
 // console.log(gameFlow.getWinner());
 // console.log(gameFlow.declareGameOver());
-// gameFlow.increaseTurnNumber();
 // gameFlow.switchPlayerTurn();
 
-// // // // //Turn 8 O
+// // // // // //Turn 7 X
 // console.log(gameFlow.getTurnNumber());
 // console.log(gameFlow.getActivePlayer());
 // console.log(gameBoard.playerTurn(2,1));
@@ -246,39 +250,92 @@ gameFlow.switchPlayerTurn();
 // console.log(gameFlow.checkTie());
 // console.log(gameFlow.getWinner());
 // console.log(gameFlow.declareGameOver());
-// gameFlow.increaseTurnNumber();
 // gameFlow.switchPlayerTurn();
 
-// // // //Turn 9 X
+// // // // //Turn 8 O
 // console.log(gameFlow.getTurnNumber());
 // console.log(gameFlow.getActivePlayer());
 // console.log(gameBoard.playerTurn(2,2));
 // console.log(gameBoard.board);
+// console.log(gameFlow.checkTie());
 // console.log(gameFlow.getWinner());
 // console.log(gameFlow.declareGameOver());
+// gameFlow.switchPlayerTurn();
+
+// // // // //Turn 9 X
+// console.log(gameFlow.getTurnNumber());
+// console.log(gameFlow.getActivePlayer());
+// console.log(gameBoard.playerTurn(0,0));
+// console.log(gameBoard.board);
 // console.log(gameFlow.checkTie());
+// console.log(gameFlow.getWinner());
+// console.log(gameFlow.declareGameOver());
+// gameFlow.switchPlayerTurn();
 
-
-// // gameBoard.resetBoard();
-// // gameFlow.resetTurnNumber();
+// gameBoard.resetBoard();
+// gameFlow.resetTurnNumber();
 
 // // //Turn 1 X
-// // console.log(gameFlow.getTurnNumber());
-// // console.log(gameFlow.getActivePlayer());
-// // gameBoard.playerTurn(0,1);
-// // console.log(gameBoard.board);
-// // console.log(gameFlow.checkTie());
-// // console.log(gameFlow.getWinner());
-// // gameFlow.increaseTurnNumber();
-// // gameFlow.switchPlayerTurn();
+console.log(gameFlow.getTurnNumber());
+console.log(gameFlow.getActivePlayer());
+gameBoard.playerTurn(0,1);
+console.log(gameBoard.board);
+console.log(gameFlow.checkTie());
+console.log(gameFlow.getWinner());
+console.log(gameFlow.declareGameOver());
+gameFlow.switchPlayerTurn();
 
 // // //Turn 2 O
-// // console.log(gameFlow.getTurnNumber());
-// // console.log(gameFlow.getActivePlayer());
-// // gameBoard.playerTurn(0,0);
-// // console.log(gameBoard.board);
-// // console.log(gameFlow.checkTie());
-// // console.log(gameFlow.getWinner());
-// // gameFlow.increaseTurnNumber();
-// // gameFlow.switchPlayerTurn();
+console.log(gameFlow.getTurnNumber());
+console.log(gameFlow.getActivePlayer());
+gameBoard.playerTurn(0,0);
+console.log(gameBoard.board);
+console.log(gameFlow.checkTie());
+console.log(gameFlow.getWinner());
+console.log(gameFlow.declareGameOver());
+gameFlow.increaseTurnNumber();
+gameFlow.switchPlayerTurn();
 
+// Turn 3 X
+console.log(gameFlow.getTurnNumber());
+console.log(gameFlow.getActivePlayer());
+gameBoard.playerTurn(1,1);
+console.log(gameBoard.board);
+console.log(gameFlow.checkTie());
+console.log(gameFlow.getWinner());
+console.log(gameFlow.declareGameOver());
+gameFlow.increaseTurnNumber();
+gameFlow.switchPlayerTurn();
+
+// Turn 4 O
+console.log(gameFlow.getTurnNumber());
+console.log(gameFlow.getActivePlayer());
+gameBoard.playerTurn(1,0);
+console.log(gameBoard.board);
+console.log(gameFlow.checkTie());
+console.log(gameFlow.getWinner());
+console.log(gameFlow.declareGameOver());
+gameFlow.increaseTurnNumber();
+gameFlow.switchPlayerTurn();
+
+// Turn 5 X
+console.log(gameFlow.getTurnNumber());
+console.log(gameFlow.getActivePlayer());
+gameBoard.playerTurn(1,0);
+console.log(gameBoard.board);
+console.log(gameFlow.checkTie());
+console.log(gameFlow.getWinner());
+console.log(gameFlow.declareGameOver());
+gameFlow.increaseTurnNumber();
+gameFlow.switchPlayerTurn();
+
+// Turn 5 (Again) X
+console.log(gameFlow.getTurnNumber());
+console.log(gameFlow.getActivePlayer());
+gameBoard.playerTurn(2,1);
+console.log(gameBoard.board);
+console.log(gameFlow.checkTie());
+console.log(gameFlow.getWinner());
+console.log(gameFlow.declareGameOver());
+gameFlow.increaseTurnNumber();
+gameFlow.switchPlayerTurn();
