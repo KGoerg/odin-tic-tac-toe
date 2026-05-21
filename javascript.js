@@ -162,12 +162,13 @@ const gameFlow = (() => {
 
     //Need to figure out how to fully reset everything, not just the 2D board array.
     const resetGame = () => {
-        if (turnNumber === 1) {
-            gameFlow.activePlayer = gameFlow.players[0];
+        gameBoard.resetBoard();
+        if (resetTurnNumber() === 1) {
+            activePlayer = players[0];
         }
     }
     
-    return {switchPlayerTurn, getActivePlayer, getTurnNumber, resetTurnNumber, increaseTurnNumber, getWinner, checkTie, declareGameOver, resetGame};
+    return {switchPlayerTurn, getActivePlayer, getTurnNumber, increaseTurnNumber, getWinner, checkTie, declareGameOver, resetGame};
 })();
 
 //Testing playing the game. This is a tie:
@@ -330,6 +331,20 @@ gameFlow.increaseTurnNumber();
 gameFlow.switchPlayerTurn();
 
 // Turn 5 (Again) X
+console.log(gameFlow.getTurnNumber());
+console.log(gameFlow.getActivePlayer());
+gameBoard.playerTurn(2,1);
+console.log(gameBoard.board);
+console.log(gameFlow.checkTie());
+console.log(gameFlow.getWinner());
+console.log(gameFlow.declareGameOver());
+gameFlow.increaseTurnNumber();
+gameFlow.switchPlayerTurn();
+
+// gameBoard.resetBoard();
+// gameFlow.resetTurnNumber();
+gameFlow.resetGame();
+
 console.log(gameFlow.getTurnNumber());
 console.log(gameFlow.getActivePlayer());
 gameBoard.playerTurn(2,1);
