@@ -160,12 +160,18 @@ const gameFlow = (() => {
         }
     };
 
-    //Need to figure out how to fully reset everything, not just the 2D board array.
+    // const resetGameOver = () => {
+    //     if (turnNumber === 1) {
+    //         gameFlow.gameOverBoolean = false;
+    //     }
+    // };
+
     const resetGame = () => {
         gameBoard.resetBoard();
         if (resetTurnNumber() === 1) {
             activePlayer = players[0];
         }
+        gameFlow.gameOverBoolean = false;
     }
     
     return {switchPlayerTurn, getActivePlayer, getTurnNumber, increaseTurnNumber, getWinner, checkTie, declareGameOver, resetGame};
@@ -273,9 +279,6 @@ const gameFlow = (() => {
 // console.log(gameFlow.declareGameOver());
 // gameFlow.switchPlayerTurn();
 
-// gameBoard.resetBoard();
-// gameFlow.resetTurnNumber();
-
 // // //Turn 1 X
 console.log(gameFlow.getTurnNumber());
 console.log(gameFlow.getActivePlayer());
@@ -294,7 +297,6 @@ console.log(gameBoard.board);
 console.log(gameFlow.checkTie());
 console.log(gameFlow.getWinner());
 console.log(gameFlow.declareGameOver());
-gameFlow.increaseTurnNumber();
 gameFlow.switchPlayerTurn();
 
 // Turn 3 X
@@ -305,7 +307,6 @@ console.log(gameBoard.board);
 console.log(gameFlow.checkTie());
 console.log(gameFlow.getWinner());
 console.log(gameFlow.declareGameOver());
-gameFlow.increaseTurnNumber();
 gameFlow.switchPlayerTurn();
 
 // Turn 4 O
@@ -316,7 +317,6 @@ console.log(gameBoard.board);
 console.log(gameFlow.checkTie());
 console.log(gameFlow.getWinner());
 console.log(gameFlow.declareGameOver());
-gameFlow.increaseTurnNumber();
 gameFlow.switchPlayerTurn();
 
 // Turn 5 X
@@ -327,7 +327,6 @@ console.log(gameBoard.board);
 console.log(gameFlow.checkTie());
 console.log(gameFlow.getWinner());
 console.log(gameFlow.declareGameOver());
-gameFlow.increaseTurnNumber();
 gameFlow.switchPlayerTurn();
 
 // Turn 5 (Again) X
@@ -338,13 +337,11 @@ console.log(gameBoard.board);
 console.log(gameFlow.checkTie());
 console.log(gameFlow.getWinner());
 console.log(gameFlow.declareGameOver());
-gameFlow.increaseTurnNumber();
 gameFlow.switchPlayerTurn();
 
-// gameBoard.resetBoard();
-// gameFlow.resetTurnNumber();
 gameFlow.resetGame();
 
+// Turn 1 X
 console.log(gameFlow.getTurnNumber());
 console.log(gameFlow.getActivePlayer());
 gameBoard.playerTurn(2,1);
@@ -352,5 +349,66 @@ console.log(gameBoard.board);
 console.log(gameFlow.checkTie());
 console.log(gameFlow.getWinner());
 console.log(gameFlow.declareGameOver());
-gameFlow.increaseTurnNumber();
+gameFlow.switchPlayerTurn();
+
+// Turn 2 O
+console.log(gameFlow.getTurnNumber());
+console.log(gameFlow.getActivePlayer());
+gameBoard.playerTurn(2,2);
+console.log(gameBoard.board);
+console.log(gameFlow.checkTie());
+console.log(gameFlow.getWinner());
+console.log(gameFlow.declareGameOver());
+gameFlow.switchPlayerTurn();
+
+// Turn 3 X
+console.log(gameFlow.getTurnNumber());
+console.log(gameFlow.getActivePlayer());
+gameBoard.playerTurn(0,2);
+console.log(gameBoard.board);
+console.log(gameFlow.checkTie());
+console.log(gameFlow.getWinner());
+console.log(gameFlow.declareGameOver());
+gameFlow.switchPlayerTurn();
+
+// Turn 4 O
+console.log(gameFlow.getTurnNumber());
+console.log(gameFlow.getActivePlayer());
+gameBoard.playerTurn(1,1);
+console.log(gameBoard.board);
+console.log(gameFlow.checkTie());
+console.log(gameFlow.getWinner());
+console.log(gameFlow.declareGameOver());
+gameFlow.switchPlayerTurn();
+
+// Turn 5 X
+console.log(gameFlow.getTurnNumber());
+console.log(gameFlow.getActivePlayer());
+gameBoard.playerTurn(2,0);
+console.log(gameBoard.board);
+console.log(gameFlow.checkTie());
+console.log(gameFlow.getWinner());
+console.log(gameFlow.declareGameOver());
+gameFlow.switchPlayerTurn();
+
+// Turn 6 O
+console.log(gameFlow.getTurnNumber());
+console.log(gameFlow.getActivePlayer());
+gameBoard.playerTurn(0,0);
+console.log(gameBoard.board);
+console.log(gameFlow.checkTie());
+console.log(gameFlow.getWinner());
+console.log(gameFlow.declareGameOver());
+gameFlow.switchPlayerTurn();
+
+gameFlow.resetGame();
+
+// Turn 1 X
+console.log(gameFlow.getTurnNumber());
+console.log(gameFlow.getActivePlayer());
+gameBoard.playerTurn(0,0);
+console.log(gameBoard.board);
+console.log(gameFlow.checkTie());
+console.log(gameFlow.getWinner());
+console.log(gameFlow.declareGameOver());
 gameFlow.switchPlayerTurn();
