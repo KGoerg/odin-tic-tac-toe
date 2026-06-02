@@ -89,6 +89,7 @@ const gameFlow = (() => {
 
     const playerOneWins = `Player One: ${playerOne.playerName} wins!`;
     const playerTwoWins = `Player Two: ${playerTwo.playerName} wins!`;
+
     let confirmTie = false;
 
     let gameOverBoolean = false;
@@ -112,7 +113,7 @@ const gameFlow = (() => {
             gameBoard.board[0][2] === "X" && gameBoard.board[1][1] === "X" && gameBoard.board[2][0] === "X" ) {
             playerOne.increaseWinCount();
             gameFlow.gameOverBoolean = true;
-            return playerOneWins;
+            return `GAME OVER! ${playerOneWins}`;
         //Determine Player Two winner
         } else if (
             //First column down
@@ -131,7 +132,7 @@ const gameFlow = (() => {
             gameBoard.board[0][2] === "O" && gameBoard.board[1][1] === "O" && gameBoard.board[2][0] === "O" ) {
             playerTwo.increaseWinCount();
             gameFlow.gameOverBoolean = true;
-            return playerTwoWins;
+            return `GAME OVER! ${playerTwoWins}`;
         } else if (turnNumber === 10) {
             confirmTie = true;
             gameFlow.gameOverBoolean = true;
@@ -139,11 +140,10 @@ const gameFlow = (() => {
         }
     };
 
-    const gameOver = "GAME OVER!"
-
     const declareGameOver = () => {
         if (gameFlow.gameOverBoolean === true) {
-            console.log(gameOver);
+            console.log(`Player One Score: ${playerOne.getWinCount()}`);
+            console.log(`Player Two Score: ${playerTwo.getWinCount()}`);
         }
     };
 
@@ -164,7 +164,6 @@ console.log(gameFlow.getTurnNumber());
 console.log(gameFlow.getActivePlayer());
 console.log(gameBoard.playerTurn(0,1));
 console.log(gameBoard.board);
-// console.log(gameFlow.checkTie());
 console.log(gameFlow.getWinner());
 console.log(gameFlow.declareGameOver());
 gameFlow.switchPlayerTurn();
@@ -174,7 +173,6 @@ console.log(gameFlow.getTurnNumber());
 console.log(gameFlow.getActivePlayer());
 console.log(gameBoard.playerTurn(0,1));
 console.log(gameBoard.board);
-// console.log(gameFlow.checkTie());
 console.log(gameFlow.getWinner());
 console.log(gameFlow.declareGameOver());
 gameFlow.switchPlayerTurn();
@@ -185,7 +183,6 @@ console.log(gameFlow.getTurnNumber());
 console.log(gameFlow.getActivePlayer());
 console.log(gameBoard.playerTurn(1,0));
 console.log(gameBoard.board);
-// console.log(gameFlow.checkTie());
 console.log(gameFlow.getWinner());
 console.log(gameFlow.declareGameOver());
 gameFlow.switchPlayerTurn();
@@ -195,7 +192,6 @@ console.log(gameFlow.getTurnNumber());
 console.log(gameFlow.getActivePlayer());
 console.log(gameBoard.playerTurn(0,2));
 console.log(gameBoard.board);
-// console.log(gameFlow.checkTie());
 console.log(gameFlow.getWinner());
 console.log(gameFlow.declareGameOver());
 gameFlow.switchPlayerTurn();
@@ -205,7 +201,6 @@ console.log(gameFlow.getTurnNumber());
 console.log(gameFlow.getActivePlayer());
 console.log(gameBoard.playerTurn(1,1));
 console.log(gameBoard.board);
-// console.log(gameFlow.checkTie());
 console.log(gameFlow.getWinner());
 console.log(gameFlow.declareGameOver());
 gameFlow.switchPlayerTurn();
@@ -215,7 +210,6 @@ console.log(gameFlow.getTurnNumber());
 console.log(gameFlow.getActivePlayer());
 console.log(gameBoard.playerTurn(1,2));
 console.log(gameBoard.board);
-// console.log(gameFlow.checkTie());
 console.log(gameFlow.getWinner());
 console.log(gameFlow.declareGameOver());
 gameFlow.switchPlayerTurn();
@@ -225,7 +219,6 @@ console.log(gameFlow.getTurnNumber());
 console.log(gameFlow.getActivePlayer());
 console.log(gameBoard.playerTurn(2,0));
 console.log(gameBoard.board);
-// console.log(gameFlow.checkTie());
 console.log(gameFlow.getWinner());
 console.log(gameFlow.declareGameOver());
 gameFlow.switchPlayerTurn();
@@ -235,7 +228,6 @@ console.log(gameFlow.getTurnNumber());
 console.log(gameFlow.getActivePlayer());
 console.log(gameBoard.playerTurn(2,1));
 console.log(gameBoard.board);
-// console.log(gameFlow.checkTie());
 console.log(gameFlow.getWinner());
 console.log(gameFlow.declareGameOver());
 gameFlow.switchPlayerTurn();
@@ -245,7 +237,6 @@ console.log(gameFlow.getTurnNumber());
 console.log(gameFlow.getActivePlayer());
 console.log(gameBoard.playerTurn(2,2));
 console.log(gameBoard.board);
-// console.log(gameFlow.checkTie());
 console.log(gameFlow.getWinner());
 console.log(gameFlow.declareGameOver());
 gameFlow.switchPlayerTurn();
@@ -255,84 +246,65 @@ console.log(gameFlow.getTurnNumber());
 console.log(gameFlow.getActivePlayer());
 console.log(gameBoard.playerTurn(0,0));
 console.log(gameBoard.board);
-// console.log(gameFlow.checkTie());
 console.log(gameFlow.getWinner());
 console.log(gameFlow.declareGameOver());
 gameFlow.switchPlayerTurn();
 
-console.log(playerOne.getWinCount());
+// console.log(playerOne.getWinCount());
 
 // // // //Turn 1 X
 // console.log(gameFlow.getTurnNumber());
 // console.log(gameFlow.getActivePlayer());
 // gameBoard.playerTurn(0,1);
 // console.log(gameBoard.board);
-// // console.log(gameFlow.checkTie());
 // console.log(gameFlow.getWinner());
 // console.log(gameFlow.declareGameOver());
 // gameFlow.switchPlayerTurn();
-// console.log(playerOne.getWinCount());
 
 // // // //Turn 2 O
 // console.log(gameFlow.getTurnNumber());
 // console.log(gameFlow.getActivePlayer());
 // gameBoard.playerTurn(0,0);
 // console.log(gameBoard.board);
-// // console.log(gameFlow.checkTie());
 // console.log(gameFlow.getWinner());
 // console.log(gameFlow.declareGameOver());
 // gameFlow.switchPlayerTurn();
-// console.log(playerOne.getWinCount());
 
 // // Turn 3 X
 // console.log(gameFlow.getTurnNumber());
 // console.log(gameFlow.getActivePlayer());
 // gameBoard.playerTurn(1,1);
 // console.log(gameBoard.board);
-// // console.log(gameFlow.checkTie());
 // console.log(gameFlow.getWinner());
 // console.log(gameFlow.declareGameOver());
 // gameFlow.switchPlayerTurn();
-// console.log(playerOne.getWinCount());
 
 // // Turn 4 O
 // console.log(gameFlow.getTurnNumber());
 // console.log(gameFlow.getActivePlayer());
 // gameBoard.playerTurn(1,0);
 // console.log(gameBoard.board);
-// // console.log(gameFlow.checkTie());
 // console.log(gameFlow.getWinner());
 // console.log(gameFlow.declareGameOver());
 // gameFlow.switchPlayerTurn();
-// console.log(playerOne.getWinCount());
 
 // // Turn 5 X
 // console.log(gameFlow.getTurnNumber());
 // console.log(gameFlow.getActivePlayer());
 // gameBoard.playerTurn(1,0);
 // console.log(gameBoard.board);
-// // console.log(gameFlow.checkTie());
 // console.log(gameFlow.getWinner());
 // console.log(gameFlow.declareGameOver());
 // gameFlow.switchPlayerTurn();
-// console.log(playerOne.getWinCount());
 
 // // Turn 5 (Again) X
 // console.log(gameFlow.getTurnNumber());
 // console.log(gameFlow.getActivePlayer());
 // gameBoard.playerTurn(2,1);
 // console.log(gameBoard.board);
-// // console.log(gameFlow.checkTie());
 // console.log(gameFlow.getWinner());
 // console.log(gameFlow.declareGameOver());
 // gameFlow.switchPlayerTurn();
-
-// //Need to fix checkTie so that it doesn't run getWinner, which is causing the score to increase.
-// console.log(playerOne.getWinCount());
-// // console.log(gameFlow.checkTie());
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-
 
 // gameFlow.resetGame();
 
@@ -341,27 +313,24 @@ console.log(playerOne.getWinCount());
 // console.log(gameFlow.getActivePlayer());
 // gameBoard.playerTurn(2,1);
 // console.log(gameBoard.board);
-// console.log(gameFlow.checkTie());
 // console.log(gameFlow.getWinner());
 // console.log(gameFlow.declareGameOver());
 // gameFlow.switchPlayerTurn();
 
-// // Turn 2 O
+// // // Turn 2 O
 // console.log(gameFlow.getTurnNumber());
 // console.log(gameFlow.getActivePlayer());
 // gameBoard.playerTurn(2,2);
 // console.log(gameBoard.board);
-// console.log(gameFlow.checkTie());
 // console.log(gameFlow.getWinner());
 // console.log(gameFlow.declareGameOver());
 // gameFlow.switchPlayerTurn();
 
-// // Turn 3 X
+// // // Turn 3 X
 // console.log(gameFlow.getTurnNumber());
 // console.log(gameFlow.getActivePlayer());
 // gameBoard.playerTurn(0,2);
 // console.log(gameBoard.board);
-// console.log(gameFlow.checkTie());
 // console.log(gameFlow.getWinner());
 // console.log(gameFlow.declareGameOver());
 // gameFlow.switchPlayerTurn();
@@ -371,7 +340,6 @@ console.log(playerOne.getWinCount());
 // console.log(gameFlow.getActivePlayer());
 // gameBoard.playerTurn(1,1);
 // console.log(gameBoard.board);
-// console.log(gameFlow.checkTie());
 // console.log(gameFlow.getWinner());
 // console.log(gameFlow.declareGameOver());
 // gameFlow.switchPlayerTurn();
@@ -381,7 +349,6 @@ console.log(playerOne.getWinCount());
 // console.log(gameFlow.getActivePlayer());
 // gameBoard.playerTurn(2,0);
 // console.log(gameBoard.board);
-// console.log(gameFlow.checkTie());
 // console.log(gameFlow.getWinner());
 // console.log(gameFlow.declareGameOver());
 // gameFlow.switchPlayerTurn();
@@ -389,21 +356,46 @@ console.log(playerOne.getWinCount());
 // // Turn 6 O
 // console.log(gameFlow.getTurnNumber());
 // console.log(gameFlow.getActivePlayer());
+// gameBoard.playerTurn(1,2);
+// console.log(gameBoard.board);
+// console.log(gameFlow.getWinner());
+// console.log(gameFlow.declareGameOver());
+// gameFlow.switchPlayerTurn();
+
+// // Turn 7 X
+// console.log(gameFlow.getTurnNumber());
+// console.log(gameFlow.getActivePlayer());
+// gameBoard.playerTurn(1,0);
+// console.log(gameBoard.board);
+// console.log(gameFlow.getWinner());
+// console.log(gameFlow.declareGameOver());
+// gameFlow.switchPlayerTurn();
+
+// // Turn 8 O
+// console.log(gameFlow.getTurnNumber());
+// console.log(gameFlow.getActivePlayer());
+// gameBoard.playerTurn(0,1);
+// console.log(gameBoard.board);
+// console.log(gameFlow.getWinner());
+// console.log(gameFlow.declareGameOver());
+// gameFlow.switchPlayerTurn();
+
+// // Turn 9 X
+// console.log(gameFlow.getTurnNumber());
+// console.log(gameFlow.getActivePlayer());
 // gameBoard.playerTurn(0,0);
 // console.log(gameBoard.board);
-// console.log(gameFlow.checkTie());
 // console.log(gameFlow.getWinner());
 // console.log(gameFlow.declareGameOver());
 // gameFlow.switchPlayerTurn();
 
 // gameFlow.resetGame();
 
-// // Turn 1 X
+// // // Turn 1 X
 // console.log(gameFlow.getTurnNumber());
 // console.log(gameFlow.getActivePlayer());
 // gameBoard.playerTurn(0,0);
 // console.log(gameBoard.board);
-// console.log(gameFlow.checkTie());
 // console.log(gameFlow.getWinner());
 // console.log(gameFlow.declareGameOver());
 // gameFlow.switchPlayerTurn();
