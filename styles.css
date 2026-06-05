@@ -1,0 +1,11 @@
+.square {
+    border: 2px solid black;
+    height: 100px;
+    width: 100px;
+}
+
+.space-button {
+    height: 100px;
+    width: 100px;
+    border: 0;
+}
