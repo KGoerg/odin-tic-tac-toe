@@ -1,11 +1,17 @@
 .square {
     border: 2px solid black;
-    height: 100px;
-    width: 100px;
+    height: 200px;
+    width: 200px;
 }
 
 .space-button {
-    height: 100px;
-    width: 100px;
+    height: 200px;
+    width: 200px;
     border: 0;
+}
+
+.game-board {
+    display: grid;
+    grid-template-rows: repeat(3, 200px);
+    grid-template-columns: repeat(3, 200px);
 }
