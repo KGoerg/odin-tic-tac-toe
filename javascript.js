@@ -48,8 +48,35 @@ function createPlayer (name) {
     return {playerName, getWinCount, increaseWinCount}
 };
 
-const playerOne = createPlayer("Kamie");
-const playerTwo = createPlayer("Aaron");
+// const playerOne = createPlayer("Kamie");
+// const playerTwo = createPlayer("Aaron");
+
+let playerOne;
+let playerTwo;
+
+//DOM elements to get player names and push them to the backend
+const submitButton = document.querySelector("#submit_button");
+
+const playerOneTextbox = document.getElementById("player_one");
+const playerTwoTextbox = document.getElementById("player_two");
+
+let playerOneSubmission;
+let playerTwoSubmission;
+
+function getInputValues() {
+    playerOneSubmission = playerOneTextbox.value;
+    playerTwoSubmission = playerTwoTextbox.value;
+}
+
+// Gets value of textboxes and runs createPlayer to create players 1 & 2. PROBLEM: Stores playerOne and playerTwo in the eventlistener and does not update the variables in the global scope.
+submitButton.addEventListener("click", () => {
+    getInputValues();
+    playerOne = createPlayer(playerOneSubmission);
+    playerTwo = createPlayer(playerTwoSubmission);
+});
+
+// submitButton.addEventListener("click", getInputValues);
+// console.log(playerOneSubmission);
 
 //Control turn order and rounds
 const gameFlow = (() => {
@@ -157,6 +184,21 @@ const gameFlow = (() => {
     
     return {switchPlayerTurn, getActivePlayer, getTurnNumber, increaseTurnNumber, getWinner, declareGameOver, resetGame};
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Testing playing the game. This is a tie:
 // Turn 1 X
