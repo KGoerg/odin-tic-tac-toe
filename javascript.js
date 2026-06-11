@@ -73,11 +73,12 @@ submitButton.addEventListener("click", () => {
     getInputValues();
     playerOne = createPlayer(playerOneSubmission);
     playerTwo = createPlayer(playerTwoSubmission);
-    playerMaintenance();
 });
 
-//Names players and gives them their markers
-function playerMaintenance() {
+//Control turn order and rounds
+//This doesn't need to be an IIFE.
+function gameFlow() {
+
     //Names players
     const playerOneName = `Player One: ${playerOne.playerName}`;
     const playerTwoName = `Player Two: ${playerTwo.playerName}`;
@@ -93,12 +94,6 @@ function playerMaintenance() {
             marker: "O",
         }
     ];
-    
-}
-
-//Control turn order and rounds
-//This doesn't need to be an IIFE.
-function gameFlow() {
 
     //Switches player turn
     let activePlayer = players[0];
@@ -190,9 +185,6 @@ function resetGame() {
     }
     gameFlow.gameOverBoolean = false;
 };
-
-
-
 
 
 
