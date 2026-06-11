@@ -75,6 +75,27 @@ submitButton.addEventListener("click", () => {
     playerTwo = createPlayer(playerTwoSubmission);
 });
 
+
+//DOM elements to start playing game
+const squareOne = document.getElementById("square-one");
+const squareTwo = document.getElementById("square-two");
+const squareThree = document.getElementById("square-three");
+const squareFour = document.getElementById("square-four");
+const squareFive = document.getElementById("square-five");
+const squareSix = document.getElementById("square-six");
+const squareSeven = document.getElementById("square-seven");
+const squareEight = document.getElementById("square-eight");
+const squareNine = document.getElementById("square-nine");
+
+//I need to tie each square to the board array so that playerTurn can get the index of the space on the board.
+squareOne.addEventListener("click", () => {
+    let squareOneIndexOne = 0;
+    let squareOneIndexTwo = 0;
+    //Need to figure out how get playerTurn working correctly, since it accesses functions that used to be in gameFlow and no longer work correctly because they're out of scope?
+    gameBoard.playerTurn(squareOneIndexOne, squareOneIndexTwo);
+});
+
+
 //Control turn order and rounds
 //This doesn't need to be an IIFE.
 function gameFlow() {
@@ -172,6 +193,7 @@ function gameFlow() {
         }
     };
     console.log(getTurnNumber());
+    console.log(getActivePlayer())
     console.log(getWinner());
     console.log(declareGameOver());
     console.log(switchPlayerTurn());
