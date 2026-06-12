@@ -22,19 +22,7 @@ const gameBoard = (() => {
 
     let turnFailed = false;
 
-    const playerTurn = (index1, index2) => {
-        let boardPosition = gameBoard.board[index1][index2];
-        if (boardPosition === 0) {
-            board[index1][index2] = gameFlow.getActivePlayer().marker;
-            gameFlow.increaseTurnNumber();
-            gameBoard.turnFailed = false;
-        } else if (boardPosition !== 0) {
-            gameBoard.turnFailed = true;
-            console.log("You cannot select this space.");
-        }
-        };
-
-return {board, resetBoard, turnFailed, playerTurn};
+return {board, resetBoard, turnFailed};
 })();
 
 //Create player and attach scorekeeping
@@ -92,13 +80,13 @@ squareOne.addEventListener("click", () => {
     let squareOneIndexOne = 0;
     let squareOneIndexTwo = 0;
     //Need to figure out how get playerTurn working correctly, since it accesses functions that used to be in gameFlow and no longer work correctly because they're out of scope?
-    gameBoard.playerTurn(squareOneIndexOne, squareOneIndexTwo);
+    gameFlow(squareOneIndexOne, squareOneIndexTwo);
 });
 
 
 //Control turn order and rounds
 //This doesn't need to be an IIFE.
-function gameFlow() {
+function gameFlow(index1, index2) {
 
     //Names players
     const playerOneName = `Player One: ${playerOne.playerName}`;
@@ -139,6 +127,18 @@ function gameFlow() {
     let confirmTie = false;
 
     let gameOverBoolean = false;
+
+    function playerTurn() {
+        let boardPosition = gameBoard.board[index1][index2];
+        if (boardPosition === 0) {
+            gameBoard.board[index1][index2] = getActivePlayer().marker;
+            increaseTurnNumber();
+            gameBoard.turnFailed = false;
+        } else if (boardPosition !== 0) {
+            gameBoard.turnFailed = true;
+            console.log("You cannot select this space.");
+        }
+        };
     
     const getWinner = () => {
         //Determine Player One winner
@@ -194,6 +194,7 @@ function gameFlow() {
     };
     console.log(getTurnNumber());
     console.log(getActivePlayer())
+    console.log(playerTurn());
     console.log(getWinner());
     console.log(declareGameOver());
     console.log(switchPlayerTurn());
