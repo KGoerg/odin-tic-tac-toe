@@ -87,100 +87,102 @@ const squareSeven = document.getElementById("square-seven");
 const squareEight = document.getElementById("square-eight");
 const squareNine = document.getElementById("square-nine");
 
-//DOM elements for buttons
-const gameButtons = (() => {
+//DOM elements for grid buttons
+squareOne.addEventListener("click", () => {
+    let squareOneIndexOne = 0;
+    let squareOneIndexTwo = 0;
+    gameFlow(squareOneIndexOne, squareOneIndexTwo);
+    console.log(gameBoard.board);
+    squareOne.textContent = getActivePlayer().marker;
+    switchPlayerTurn();
+    squareOne.disabled = true;
+});
 
-    const buttonOne = squareOne.addEventListener("click", () => {
-        let squareOneIndexOne = 0;
-        let squareOneIndexTwo = 0;
-        gameFlow(squareOneIndexOne, squareOneIndexTwo);
-        console.log(gameBoard.board);
-        squareOne.textContent = getActivePlayer().marker;
-        switchPlayerTurn();
-        squareOne.disabled = true;
-    });
+squareTwo.addEventListener("click", () => {
+    let squareTwoIndexOne = 0;
+    let squareTwoIndexTwo = 1;
+    gameFlow(squareTwoIndexOne, squareTwoIndexTwo);
+    console.log(gameBoard.board);
+    squareTwo.textContent = getActivePlayer().marker;
+    switchPlayerTurn();
+    squareTwo.disabled = true;
+});
 
-    const buttonTwo = squareTwo.addEventListener("click", () => {
-        let squareTwoIndexOne = 0;
-        let squareTwoIndexTwo = 1;
-        gameFlow(squareTwoIndexOne, squareTwoIndexTwo);
-        console.log(gameBoard.board);
-        squareTwo.textContent = getActivePlayer().marker;
-        switchPlayerTurn();
-        squareTwo.disabled = true;
-    });
+squareThree.addEventListener("click", () => {
+    let squareThreeIndexOne = 0;
+    let squareThreeIndexTwo = 2;
+    gameFlow(squareThreeIndexOne, squareThreeIndexTwo);
+    console.log(gameBoard.board);
+    squareThree.textContent = getActivePlayer().marker;
+    switchPlayerTurn();
+    squareThree.disabled = true;
+});
 
-    const buttonThree = squareThree.addEventListener("click", () => {
-        let squareThreeIndexOne = 0;
-        let squareThreeIndexTwo = 2;
-        gameFlow(squareThreeIndexOne, squareThreeIndexTwo);
-        console.log(gameBoard.board);
-        squareThree.textContent = getActivePlayer().marker;
-        switchPlayerTurn();
-        squareThree.disabled = true;
-    });
+squareFour.addEventListener("click", () => {
+    let squareFourIndexOne = 1;
+    let squareFourIndexTwo = 0;
+    gameFlow(squareFourIndexOne, squareFourIndexTwo);
+    console.log(gameBoard.board);
+    squareFour.textContent = getActivePlayer().marker;
+    switchPlayerTurn();
+    squareFour.disabled = true;
+});
 
-    const buttonFour = squareFour.addEventListener("click", () => {
-        let squareFourIndexOne = 1;
-        let squareFourIndexTwo = 0;
-        gameFlow(squareFourIndexOne, squareFourIndexTwo);
-        console.log(gameBoard.board);
-        squareFour.textContent = getActivePlayer().marker;
-        switchPlayerTurn();
-        squareFour.disabled = true;
-    });
+squareFive.addEventListener("click", () => {
+    let squareFiveIndexOne = 1;
+    let squareFiveIndexTwo = 1;
+    gameFlow(squareFiveIndexOne, squareFiveIndexTwo);
+    console.log(gameBoard.board);
+    squareFive.textContent = getActivePlayer().marker;
+    switchPlayerTurn();
+    squareFive.disabled = true;
+});
 
-    const buttonFive = squareFive.addEventListener("click", () => {
-        let squareFiveIndexOne = 1;
-        let squareFiveIndexTwo = 1;
-        gameFlow(squareFiveIndexOne, squareFiveIndexTwo);
-        console.log(gameBoard.board);
-        squareFive.textContent = getActivePlayer().marker;
-        switchPlayerTurn();
-        squareFive.disabled = true;
-    });
+squareSix.addEventListener("click", () => {
+    let squareSixIndexOne = 1;
+    let squareSixIndexTwo = 2;
+    gameFlow(squareSixIndexOne, squareSixIndexTwo);
+    console.log(gameBoard.board);
+    squareSix.textContent = getActivePlayer().marker;
+    switchPlayerTurn();
+    squareSix.disabled = true;
+});
 
-    const buttonSix = squareSix.addEventListener("click", () => {
-        let squareSixIndexOne = 1;
-        let squareSixIndexTwo = 2;
-        gameFlow(squareSixIndexOne, squareSixIndexTwo);
-        console.log(gameBoard.board);
-        squareSix.textContent = getActivePlayer().marker;
-        switchPlayerTurn();
-        squareSix.disabled = true;
-    });
+squareSeven.addEventListener("click", () => {
+    let squareSevenIndexOne = 2;
+    let squareSevenIndexTwo = 0;
+    gameFlow(squareSevenIndexOne, squareSevenIndexTwo);
+    console.log(gameBoard.board);
+    squareSeven.textContent = getActivePlayer().marker;
+    switchPlayerTurn();
+    squareSeven.disabled = true;
+});
 
-    const buttonSeven = squareSeven.addEventListener("click", () => {
-        let squareSevenIndexOne = 2;
-        let squareSevenIndexTwo = 0;
-        gameFlow(squareSevenIndexOne, squareSevenIndexTwo);
-        console.log(gameBoard.board);
-        squareSeven.textContent = getActivePlayer().marker;
-        switchPlayerTurn();
-        squareSeven.disabled = true;
-    });
+squareEight.addEventListener("click", () => {
+    let squareEightIndexOne = 2;
+    let squareEightIndexTwo = 1;
+    gameFlow(squareEightIndexOne, squareEightIndexTwo);
+    console.log(gameBoard.board);
+    squareEight.textContent = getActivePlayer().marker;
+    switchPlayerTurn();
+    squareEight.disabled = true;
+});
 
-    const buttonEight = squareEight.addEventListener("click", () => {
-        let squareEightIndexOne = 2;
-        let squareEightIndexTwo = 1;
-        gameFlow(squareEightIndexOne, squareEightIndexTwo);
-        console.log(gameBoard.board);
-        squareEight.textContent = getActivePlayer().marker;
-        switchPlayerTurn();
-        squareEight.disabled = true;
-    });
+squareNine.addEventListener("click", () => {
+    let squareNineIndexOne = 2;
+    let squareNineIndexTwo = 2;
+    gameFlow(squareNineIndexOne, squareNineIndexTwo);
+    console.log(gameBoard.board);
+    squareNine.textContent = getActivePlayer().marker;
+    switchPlayerTurn();
+    squareNine.disabled = true;
+});
 
-    const buttonNine = squareNine.addEventListener("click", () => {
-        let squareNineIndexOne = 2;
-        let squareNineIndexTwo = 2;
-        gameFlow(squareNineIndexOne, squareNineIndexTwo);
-        console.log(gameBoard.board);
-        squareNine.textContent = getActivePlayer().marker;
-        switchPlayerTurn();
-        squareNine.disabled = true;
-    });
-    return {buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive, buttonSix, buttonSeven, buttonEight, buttonNine}
-})();
+const resetButton = document.getElementById("reset-button");
+resetButton.addEventListener("click", () => {
+    resetGame();
+    console.log(gameBoard.board);
+});
 
 const switchPlayerTurn = () => {
     if (gameBoard.turnFailed === true) {
@@ -192,14 +194,14 @@ const switchPlayerTurn = () => {
 };
 
 const getActivePlayer = () => activePlayer;
+const resetTurnNumber = () => turnNumber = 1;
+let turnNumber = 1;
 
 //Control turn order and rounds
 function gameFlow(index1, index2) {
 
-    let turnNumber = 1;
     const getTurnNumber = () => `Turn Number: ${turnNumber}`;
     const increaseTurnNumber = () => turnNumber++;
-    const resetTurnNumber = () => turnNumber = 1;
 
     const playerOneWins = `Player One: ${playerOne.playerName} wins!`;
     const playerTwoWins = `Player Two: ${playerTwo.playerName} wins!`;
@@ -278,10 +280,36 @@ function gameFlow(index1, index2) {
     console.log(declareGameOver());
 };
 
+function reEnableSquares() {
+    squareOne.disabled = false;
+    squareTwo.disabled = false;
+    squareThree.disabled = false;
+    squareFour.disabled = false;
+    squareFive.disabled = false;
+    squareSix.disabled = false;
+    squareSeven.disabled = false;
+    squareEight.disabled = false;
+    squareNine.disabled = false;
+}
+
+function resetSquareText() {
+    squareOne.textContent = "";
+    squareTwo.textContent = "";
+    squareThree.textContent = "";
+    squareFour.textContent = "";
+    squareFive.textContent = "";
+    squareSix.textContent = "";
+    squareSeven.textContent = "";
+    squareEight.textContent = "";
+    squareNine.textContent = "";
+}
+
 function resetGame() {
     gameBoard.resetBoard();
     if (resetTurnNumber() === 1) {
         activePlayer = players[0];
+        resetSquareText();
+        reEnableSquares();
     }
     gameFlow.gameOverBoolean = false;
 };
