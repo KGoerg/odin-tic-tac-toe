@@ -65,12 +65,14 @@ submitButton.addEventListener("click", () => {
             marker: "O",
         }
     ];
+    activePlayer = players[0];
 });
 
 //These variables, upon Submit button click, hold the players' names and scores.
 let playerOne;
 let playerTwo;
 let players = [];
+let activePlayer;
 
 //DOM elements to start playing game
 const squareOne = document.getElementById("square-one");
@@ -89,7 +91,8 @@ squareOne.addEventListener("click", () => {
     let squareOneIndexTwo = 0;
     gameFlow(squareOneIndexOne, squareOneIndexTwo);
     console.log(gameBoard.board);
-    squareOne.textContent = players[0].marker;
+    squareOne.textContent = getActivePlayer().marker;
+    switchPlayerTurn();
     //I now need to figure out how to get the active player's marker into the button text. The marker is currently locked in gameFlow's scope, so some editing needs to happen...
 });
 
@@ -98,36 +101,24 @@ squareTwo.addEventListener("click", () => {
     let squareTwoIndexTwo = 1;
     gameFlow(squareTwoIndexOne, squareTwoIndexTwo);
     console.log(gameBoard.board);
+    squareTwo.textContent = getActivePlayer().marker;
+    switchPlayerTurn();
     //I now need to figure out how to get the active player's marker into the button text. The marker is currently locked in gameFlow's scope, so some editing needs to happen...
 });
 
+const switchPlayerTurn = () => {
+    if (gameBoard.turnFailed === true) {
+        console.log("Try again!");
+    } else {
+        activePlayer = activePlayer === players[0] ? players[1] : players[0]
+    }
+    return activePlayer;
+};
+
+const getActivePlayer = () => activePlayer;
+
 //Control turn order and rounds
 function gameFlow(index1, index2) {
-
-    // //Gives players their names and markers
-    // const players = [
-    //     {
-    //         name: playerOneSubmission,
-    //         marker: "X",
-    //     },
-    //     {
-    //         name: playerTwoSubmission,
-    //         marker: "O",
-    //     }
-    // ];
-
-    //Switches player turn
-    let activePlayer = players[0];
-    const switchPlayerTurn = () => {
-        if (gameBoard.turnFailed === true) {
-            console.log("Try again!");
-        } else {
-            activePlayer = activePlayer === players[0] ? players[1] : players[0]
-        }
-        return activePlayer;
-    };
-
-    const getActivePlayer = () => activePlayer;
 
     let turnNumber = 1;
     const getTurnNumber = () => `Turn Number: ${turnNumber}`;
@@ -206,11 +197,9 @@ function gameFlow(index1, index2) {
         }
     };
     console.log(getTurnNumber());
-    console.log(getActivePlayer())
     console.log(playerTurn());
     console.log(getWinner());
     console.log(declareGameOver());
-    console.log(switchPlayerTurn());
 };
 
 
