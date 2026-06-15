@@ -55,11 +55,22 @@ submitButton.addEventListener("click", () => {
     getInputValues();
     playerOne = createPlayer(playerOneSubmission);
     playerTwo = createPlayer(playerTwoSubmission);
+    players = [
+        {
+            name: playerOneSubmission,
+            marker: "X",
+        },
+        {
+            name: playerTwoSubmission,
+            marker: "O",
+        }
+    ];
 });
 
 //These variables, upon Submit button click, hold the players' names and scores.
 let playerOne;
 let playerTwo;
+let players = [];
 
 //DOM elements to start playing game
 const squareOne = document.getElementById("square-one");
@@ -78,6 +89,7 @@ squareOne.addEventListener("click", () => {
     let squareOneIndexTwo = 0;
     gameFlow(squareOneIndexOne, squareOneIndexTwo);
     console.log(gameBoard.board);
+    squareOne.textContent = players[0].marker;
     //I now need to figure out how to get the active player's marker into the button text. The marker is currently locked in gameFlow's scope, so some editing needs to happen...
 });
 
@@ -89,21 +101,20 @@ squareTwo.addEventListener("click", () => {
     //I now need to figure out how to get the active player's marker into the button text. The marker is currently locked in gameFlow's scope, so some editing needs to happen...
 });
 
-let players = [];
 //Control turn order and rounds
 function gameFlow(index1, index2) {
 
-    //Gives players their names and markers
-    const players = [
-        {
-            name: playerOneSubmission,
-            marker: "X",
-        },
-        {
-            name: playerTwoSubmission,
-            marker: "O",
-        }
-    ];
+    // //Gives players their names and markers
+    // const players = [
+    //     {
+    //         name: playerOneSubmission,
+    //         marker: "X",
+    //     },
+    //     {
+    //         name: playerTwoSubmission,
+    //         marker: "O",
+    //     }
+    // ];
 
     //Switches player turn
     let activePlayer = players[0];
