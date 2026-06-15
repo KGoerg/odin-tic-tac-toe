@@ -71,6 +71,8 @@ submitButton.addEventListener("click", () => {
 //These variables, upon Submit button click, hold the players' names and scores.
 let playerOne;
 let playerTwo;
+
+//Additional player variables
 let players = [];
 let activePlayer;
 
@@ -85,7 +87,7 @@ const squareSeven = document.getElementById("square-seven");
 const squareEight = document.getElementById("square-eight");
 const squareNine = document.getElementById("square-nine");
 
-//I need to tie each square to the board array so that playerTurn can get the index of the space on the board.
+//DOM elements for buttons
 squareOne.addEventListener("click", () => {
     let squareOneIndexOne = 0;
     let squareOneIndexTwo = 0;
@@ -93,7 +95,7 @@ squareOne.addEventListener("click", () => {
     console.log(gameBoard.board);
     squareOne.textContent = getActivePlayer().marker;
     switchPlayerTurn();
-    //I now need to figure out how to get the active player's marker into the button text. The marker is currently locked in gameFlow's scope, so some editing needs to happen...
+    squareOne.disabled = true;
 });
 
 squareTwo.addEventListener("click", () => {
@@ -103,7 +105,77 @@ squareTwo.addEventListener("click", () => {
     console.log(gameBoard.board);
     squareTwo.textContent = getActivePlayer().marker;
     switchPlayerTurn();
-    //I now need to figure out how to get the active player's marker into the button text. The marker is currently locked in gameFlow's scope, so some editing needs to happen...
+    squareTwo.disabled = true;
+});
+
+squareThree.addEventListener("click", () => {
+    let squareThreeIndexOne = 0;
+    let squareThreeIndexTwo = 2;
+    gameFlow(squareThreeIndexOne, squareThreeIndexTwo);
+    console.log(gameBoard.board);
+    squareThree.textContent = getActivePlayer().marker;
+    switchPlayerTurn();
+    squareThree.disabled = true;
+});
+
+squareFour.addEventListener("click", () => {
+    let squareFourIndexOne = 1;
+    let squareFourIndexTwo = 0;
+    gameFlow(squareFourIndexOne, squareFourIndexTwo);
+    console.log(gameBoard.board);
+    squareFour.textContent = getActivePlayer().marker;
+    switchPlayerTurn();
+    squareFour.disabled = true;
+});
+
+squareFive.addEventListener("click", () => {
+    let squareFiveIndexOne = 1;
+    let squareFiveIndexTwo = 1;
+    gameFlow(squareFiveIndexOne, squareFiveIndexTwo);
+    console.log(gameBoard.board);
+    squareFive.textContent = getActivePlayer().marker;
+    switchPlayerTurn();
+    squareFive.disabled = true;
+});
+
+squareSix.addEventListener("click", () => {
+    let squareSixIndexOne = 1;
+    let squareSixIndexTwo = 2;
+    gameFlow(squareSixIndexOne, squareSixIndexTwo);
+    console.log(gameBoard.board);
+    squareSix.textContent = getActivePlayer().marker;
+    switchPlayerTurn();
+    squareSix.disabled = true;
+});
+
+squareSeven.addEventListener("click", () => {
+    let squareSevenIndexOne = 2;
+    let squareSevenIndexTwo = 0;
+    gameFlow(squareSevenIndexOne, squareSevenIndexTwo);
+    console.log(gameBoard.board);
+    squareSeven.textContent = getActivePlayer().marker;
+    switchPlayerTurn();
+    squareSeven.disabled = true;
+});
+
+squareEight.addEventListener("click", () => {
+    let squareEightIndexOne = 2;
+    let squareEightIndexTwo = 1;
+    gameFlow(squareEightIndexOne, squareEightIndexTwo);
+    console.log(gameBoard.board);
+    squareEight.textContent = getActivePlayer().marker;
+    switchPlayerTurn();
+    squareEight.disabled = true;
+});
+
+squareNine.addEventListener("click", () => {
+    let squareNineIndexOne = 2;
+    let squareNineIndexTwo = 2;
+    gameFlow(squareNineIndexOne, squareNineIndexTwo);
+    console.log(gameBoard.board);
+    squareNine.textContent = getActivePlayer().marker;
+    switchPlayerTurn();
+    squareNine.disabled = true;
 });
 
 const switchPlayerTurn = () => {
