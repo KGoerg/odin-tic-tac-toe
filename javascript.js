@@ -36,12 +36,6 @@ function createPlayer (name) {
     return {playerName, getWinCount, increaseWinCount}
 };
 
-// const playerOne = createPlayer("Kamie");
-// const playerTwo = createPlayer("Aaron");
-
-let playerOne;
-let playerTwo;
-
 //DOM elements to get player names and push them to the backend
 const submitButton = document.querySelector("#submit_button");
 
@@ -56,13 +50,16 @@ function getInputValues() {
     playerTwoSubmission = playerTwoTextbox.value;
 }
 
-// Gets value of textboxes and runs createPlayer to create players 1 & 2. PROBLEM: Stores playerOne and playerTwo in the eventlistener and does not update the variables in the global scope.
+// Gets value of textboxes and runs createPlayer to create players 1 & 2. 
 submitButton.addEventListener("click", () => {
     getInputValues();
     playerOne = createPlayer(playerOneSubmission);
     playerTwo = createPlayer(playerTwoSubmission);
 });
 
+//These variables, upon Submit button click, hold the players' names and scores.
+let playerOne;
+let playerTwo;
 
 //DOM elements to start playing game
 const squareOne = document.getElementById("square-one");
@@ -79,27 +76,31 @@ const squareNine = document.getElementById("square-nine");
 squareOne.addEventListener("click", () => {
     let squareOneIndexOne = 0;
     let squareOneIndexTwo = 0;
-    //Need to figure out how get playerTurn working correctly, since it accesses functions that used to be in gameFlow and no longer work correctly because they're out of scope?
     gameFlow(squareOneIndexOne, squareOneIndexTwo);
+    console.log(gameBoard.board);
+    //I now need to figure out how to get the active player's marker into the button text. The marker is currently locked in gameFlow's scope, so some editing needs to happen...
 });
 
+squareTwo.addEventListener("click", () => {
+    let squareTwoIndexOne = 0;
+    let squareTwoIndexTwo = 1;
+    gameFlow(squareTwoIndexOne, squareTwoIndexTwo);
+    console.log(gameBoard.board);
+    //I now need to figure out how to get the active player's marker into the button text. The marker is currently locked in gameFlow's scope, so some editing needs to happen...
+});
 
+let players = [];
 //Control turn order and rounds
-//This doesn't need to be an IIFE.
 function gameFlow(index1, index2) {
-
-    //Names players
-    const playerOneName = `Player One: ${playerOne.playerName}`;
-    const playerTwoName = `Player Two: ${playerTwo.playerName}`;
 
     //Gives players their names and markers
     const players = [
         {
-            name: playerOneName,
+            name: playerOneSubmission,
             marker: "X",
         },
         {
-            name: playerTwoName,
+            name: playerTwoSubmission,
             marker: "O",
         }
     ];
@@ -112,6 +113,7 @@ function gameFlow(index1, index2) {
         } else {
             activePlayer = activePlayer === players[0] ? players[1] : players[0]
         }
+        return activePlayer;
     };
 
     const getActivePlayer = () => activePlayer;
