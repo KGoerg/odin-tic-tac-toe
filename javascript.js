@@ -233,6 +233,15 @@ function gameFlow(index1, index2) {
             
             //Third column down
             gameBoard.board[0][2] === "X" && gameBoard.board[1][2] === "X" && gameBoard.board[2][2] === "X" ||
+
+            //First row across
+            gameBoard.board[0][0] === "X" && gameBoard.board[0][1] === "X" && gameBoard.board[0][2] === "X" ||
+
+            //Second row across
+            gameBoard.board[1][0] === "X" && gameBoard.board[1][1] === "X" && gameBoard.board[1][2] === "X" ||
+
+            //Third row across
+            gameBoard.board[2][0] === "X" && gameBoard.board[2][1] === "X" && gameBoard.board[2][2] === "X" ||
         
             //Left to right diagonal
             gameBoard.board[0][0] === "X" && gameBoard.board[1][1] === "X" && gameBoard.board[2][2] === "X" ||
@@ -252,6 +261,15 @@ function gameFlow(index1, index2) {
             
             //Third column down
             gameBoard.board[0][2] === "O" && gameBoard.board[1][2] === "O" && gameBoard.board[2][2] === "O" ||
+
+                        //First row across
+            gameBoard.board[0][0] === "O" && gameBoard.board[0][1] === "O" && gameBoard.board[0][2] === "O" ||
+
+            //Second row across
+            gameBoard.board[1][0] === "O" && gameBoard.board[1][1] === "O" && gameBoard.board[1][2] === "O" ||
+
+            //Third row across
+            gameBoard.board[2][0] === "O" && gameBoard.board[2][1] === "O" && gameBoard.board[2][2] === "O" ||
         
             //Left to right diagonal
             gameBoard.board[0][0] === "O" && gameBoard.board[1][1] === "O" && gameBoard.board[2][2] === "O" ||
