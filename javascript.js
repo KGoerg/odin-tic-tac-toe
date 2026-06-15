@@ -88,95 +88,99 @@ const squareEight = document.getElementById("square-eight");
 const squareNine = document.getElementById("square-nine");
 
 //DOM elements for buttons
-squareOne.addEventListener("click", () => {
-    let squareOneIndexOne = 0;
-    let squareOneIndexTwo = 0;
-    gameFlow(squareOneIndexOne, squareOneIndexTwo);
-    console.log(gameBoard.board);
-    squareOne.textContent = getActivePlayer().marker;
-    switchPlayerTurn();
-    squareOne.disabled = true;
-});
+const gameButtons = (() => {
 
-squareTwo.addEventListener("click", () => {
-    let squareTwoIndexOne = 0;
-    let squareTwoIndexTwo = 1;
-    gameFlow(squareTwoIndexOne, squareTwoIndexTwo);
-    console.log(gameBoard.board);
-    squareTwo.textContent = getActivePlayer().marker;
-    switchPlayerTurn();
-    squareTwo.disabled = true;
-});
+    const buttonOne = squareOne.addEventListener("click", () => {
+        let squareOneIndexOne = 0;
+        let squareOneIndexTwo = 0;
+        gameFlow(squareOneIndexOne, squareOneIndexTwo);
+        console.log(gameBoard.board);
+        squareOne.textContent = getActivePlayer().marker;
+        switchPlayerTurn();
+        squareOne.disabled = true;
+    });
 
-squareThree.addEventListener("click", () => {
-    let squareThreeIndexOne = 0;
-    let squareThreeIndexTwo = 2;
-    gameFlow(squareThreeIndexOne, squareThreeIndexTwo);
-    console.log(gameBoard.board);
-    squareThree.textContent = getActivePlayer().marker;
-    switchPlayerTurn();
-    squareThree.disabled = true;
-});
+    const buttonTwo = squareTwo.addEventListener("click", () => {
+        let squareTwoIndexOne = 0;
+        let squareTwoIndexTwo = 1;
+        gameFlow(squareTwoIndexOne, squareTwoIndexTwo);
+        console.log(gameBoard.board);
+        squareTwo.textContent = getActivePlayer().marker;
+        switchPlayerTurn();
+        squareTwo.disabled = true;
+    });
 
-squareFour.addEventListener("click", () => {
-    let squareFourIndexOne = 1;
-    let squareFourIndexTwo = 0;
-    gameFlow(squareFourIndexOne, squareFourIndexTwo);
-    console.log(gameBoard.board);
-    squareFour.textContent = getActivePlayer().marker;
-    switchPlayerTurn();
-    squareFour.disabled = true;
-});
+    const buttonThree = squareThree.addEventListener("click", () => {
+        let squareThreeIndexOne = 0;
+        let squareThreeIndexTwo = 2;
+        gameFlow(squareThreeIndexOne, squareThreeIndexTwo);
+        console.log(gameBoard.board);
+        squareThree.textContent = getActivePlayer().marker;
+        switchPlayerTurn();
+        squareThree.disabled = true;
+    });
 
-squareFive.addEventListener("click", () => {
-    let squareFiveIndexOne = 1;
-    let squareFiveIndexTwo = 1;
-    gameFlow(squareFiveIndexOne, squareFiveIndexTwo);
-    console.log(gameBoard.board);
-    squareFive.textContent = getActivePlayer().marker;
-    switchPlayerTurn();
-    squareFive.disabled = true;
-});
+    const buttonFour = squareFour.addEventListener("click", () => {
+        let squareFourIndexOne = 1;
+        let squareFourIndexTwo = 0;
+        gameFlow(squareFourIndexOne, squareFourIndexTwo);
+        console.log(gameBoard.board);
+        squareFour.textContent = getActivePlayer().marker;
+        switchPlayerTurn();
+        squareFour.disabled = true;
+    });
 
-squareSix.addEventListener("click", () => {
-    let squareSixIndexOne = 1;
-    let squareSixIndexTwo = 2;
-    gameFlow(squareSixIndexOne, squareSixIndexTwo);
-    console.log(gameBoard.board);
-    squareSix.textContent = getActivePlayer().marker;
-    switchPlayerTurn();
-    squareSix.disabled = true;
-});
+    const buttonFive = squareFive.addEventListener("click", () => {
+        let squareFiveIndexOne = 1;
+        let squareFiveIndexTwo = 1;
+        gameFlow(squareFiveIndexOne, squareFiveIndexTwo);
+        console.log(gameBoard.board);
+        squareFive.textContent = getActivePlayer().marker;
+        switchPlayerTurn();
+        squareFive.disabled = true;
+    });
 
-squareSeven.addEventListener("click", () => {
-    let squareSevenIndexOne = 2;
-    let squareSevenIndexTwo = 0;
-    gameFlow(squareSevenIndexOne, squareSevenIndexTwo);
-    console.log(gameBoard.board);
-    squareSeven.textContent = getActivePlayer().marker;
-    switchPlayerTurn();
-    squareSeven.disabled = true;
-});
+    const buttonSix = squareSix.addEventListener("click", () => {
+        let squareSixIndexOne = 1;
+        let squareSixIndexTwo = 2;
+        gameFlow(squareSixIndexOne, squareSixIndexTwo);
+        console.log(gameBoard.board);
+        squareSix.textContent = getActivePlayer().marker;
+        switchPlayerTurn();
+        squareSix.disabled = true;
+    });
 
-squareEight.addEventListener("click", () => {
-    let squareEightIndexOne = 2;
-    let squareEightIndexTwo = 1;
-    gameFlow(squareEightIndexOne, squareEightIndexTwo);
-    console.log(gameBoard.board);
-    squareEight.textContent = getActivePlayer().marker;
-    switchPlayerTurn();
-    squareEight.disabled = true;
-});
+    const buttonSeven = squareSeven.addEventListener("click", () => {
+        let squareSevenIndexOne = 2;
+        let squareSevenIndexTwo = 0;
+        gameFlow(squareSevenIndexOne, squareSevenIndexTwo);
+        console.log(gameBoard.board);
+        squareSeven.textContent = getActivePlayer().marker;
+        switchPlayerTurn();
+        squareSeven.disabled = true;
+    });
 
-squareNine.addEventListener("click", () => {
-    let squareNineIndexOne = 2;
-    let squareNineIndexTwo = 2;
-    gameFlow(squareNineIndexOne, squareNineIndexTwo);
-    console.log(gameBoard.board);
-    squareNine.textContent = getActivePlayer().marker;
-    switchPlayerTurn();
-    squareNine.disabled = true;
-});
+    const buttonEight = squareEight.addEventListener("click", () => {
+        let squareEightIndexOne = 2;
+        let squareEightIndexTwo = 1;
+        gameFlow(squareEightIndexOne, squareEightIndexTwo);
+        console.log(gameBoard.board);
+        squareEight.textContent = getActivePlayer().marker;
+        switchPlayerTurn();
+        squareEight.disabled = true;
+    });
+
+    const buttonNine = squareNine.addEventListener("click", () => {
+        let squareNineIndexOne = 2;
+        let squareNineIndexTwo = 2;
+        gameFlow(squareNineIndexOne, squareNineIndexTwo);
+        console.log(gameBoard.board);
+        squareNine.textContent = getActivePlayer().marker;
+        switchPlayerTurn();
+        squareNine.disabled = true;
+    });
+    return {buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive, buttonSix, buttonSeven, buttonEight, buttonNine}
+})();
 
 const switchPlayerTurn = () => {
     if (gameBoard.turnFailed === true) {
@@ -274,7 +278,6 @@ function gameFlow(index1, index2) {
     console.log(declareGameOver());
 };
 
-
 function resetGame() {
     gameBoard.resetBoard();
     if (resetTurnNumber() === 1) {
@@ -282,253 +285,3 @@ function resetGame() {
     }
     gameFlow.gameOverBoolean = false;
 };
-
-
-
-
-
-
-
-
-
-//Testing playing the game. This is a tie:
-// Turn 1 X
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// console.log(gameBoard.playerTurn(0,1));
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-
-// // //Turn 2 O
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// console.log(gameBoard.playerTurn(0,1));
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-// console.log(gameBoard.turnFailed);
-
-// // // // // //Turn 2 (Again) O
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// console.log(gameBoard.playerTurn(1,0));
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-
-// // // // // //Turn 3 X
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// console.log(gameBoard.playerTurn(0,2));
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-
-// // // // // // //Turn 4 O
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// console.log(gameBoard.playerTurn(1,1));
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-
-// // // // // //Turn 5 X
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// console.log(gameBoard.playerTurn(1,2));
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-
-// // // // // //Turn 6 O
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// console.log(gameBoard.playerTurn(2,0));
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-
-// // // // // //Turn 7 X
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// console.log(gameBoard.playerTurn(2,1));
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-
-// // // // //Turn 8 O
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// console.log(gameBoard.playerTurn(2,2));
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-
-// // // // //Turn 9 X
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// console.log(gameBoard.playerTurn(0,0));
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-
-// console.log(playerOne.getWinCount());
-
-// // // //Turn 1 X
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// gameBoard.playerTurn(0,1);
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-
-// // // //Turn 2 O
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// gameBoard.playerTurn(0,0);
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-
-// // Turn 3 X
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// gameBoard.playerTurn(1,1);
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-
-// // Turn 4 O
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// gameBoard.playerTurn(1,0);
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-
-// // Turn 5 X
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// gameBoard.playerTurn(1,0);
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-
-// // Turn 5 (Again) X
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// gameBoard.playerTurn(2,1);
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-
-// gameFlow.resetGame();
-
-// // Turn 1 X
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// gameBoard.playerTurn(2,1);
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-
-// // // Turn 2 O
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// gameBoard.playerTurn(2,2);
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-
-// // // Turn 3 X
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// gameBoard.playerTurn(0,2);
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-
-// // Turn 4 O
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// gameBoard.playerTurn(1,1);
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-
-// // Turn 5 X
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// gameBoard.playerTurn(2,0);
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-
-// // Turn 6 O
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// gameBoard.playerTurn(1,2);
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-
-// // Turn 7 X
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// gameBoard.playerTurn(1,0);
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-
-// // Turn 8 O
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// gameBoard.playerTurn(0,1);
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-
-// // Turn 9 X
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// gameBoard.playerTurn(0,0);
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
-
-// gameFlow.resetGame();
-
-// // // Turn 1 X
-// console.log(gameFlow.getTurnNumber());
-// console.log(gameFlow.getActivePlayer());
-// gameBoard.playerTurn(0,0);
-// console.log(gameBoard.board);
-// console.log(gameFlow.getWinner());
-// console.log(gameFlow.declareGameOver());
-// gameFlow.switchPlayerTurn();
