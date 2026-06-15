@@ -290,6 +290,7 @@ function gameFlow(index1, index2) {
         if (gameFlow.gameOverBoolean === true) {
             console.log(`Player One Score: ${playerOne.getWinCount()}`);
             console.log(`Player Two Score: ${playerTwo.getWinCount()}`);
+            disableSquares();
         }
     };
     console.log(getTurnNumber());
@@ -297,6 +298,18 @@ function gameFlow(index1, index2) {
     console.log(getWinner());
     console.log(declareGameOver());
 };
+
+function disableSquares() {
+    squareOne.disabled = true;
+    squareTwo.disabled = true;
+    squareThree.disabled = true;
+    squareFour.disabled = true;
+    squareFive.disabled = true;
+    squareSix.disabled = true;
+    squareSeven.disabled = true;
+    squareEight.disabled = true;
+    squareNine.disabled = true;
+}
 
 function reEnableSquares() {
     squareOne.disabled = false;
