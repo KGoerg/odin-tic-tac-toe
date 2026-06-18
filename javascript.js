@@ -50,8 +50,10 @@ function getInputValues() {
     playerTwoSubmission = playerTwoTextbox.value;
 }
 
+const form = document.querySelector("form");
 // Gets value of textboxes and runs createPlayer to create players 1 & 2. 
 submitButton.addEventListener("click", () => {
+    form.reportValidity();
     getInputValues();
     playerOne = createPlayer(playerOneSubmission);
     playerTwo = createPlayer(playerTwoSubmission);
