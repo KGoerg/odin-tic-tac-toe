@@ -53,16 +53,96 @@ h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
+/* Begin project-specific styles */
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  --main-blue-color: rgb(173, 228, 230);
+  background-color: var(--main-blue-color);
+  align-items: center;
+  padding-bottom: 20px;
+  box-shadow: 3px 3px 3px lightgray;
+}
+
+body {
+  background-color: #FAFAFA;
+}
+
+h1 {
+  font-size: 2.5rem;
+  padding: 10px;
+  color: rgb(75, 145, 148);
+}
+
+h1, form {
+    background-color: var(--main-blue-color);
+}
+
+form {
+  padding-bottom: 20px;
+}
+
+.form-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#reset-button {
+  width: 100px;
+}
+
+legend {
+  font-size: 1.6rem;
+}
+
+label {
+  font-size: 1.2rem;
+}
+
 .square {
     border: 2px solid black;
     height: 200px;
     width: 200px;
+    background-color: #FAFAFA;
+}
+
+#square-one,
+#square-two,
+#square-three {
+  border-top: 0px;
+}
+
+#square-one,
+#square-four,
+#square-seven {
+  border-left: 0px;
+}
+
+#square-seven,
+#square-eight,
+#square-nine {
+  border-bottom: 0px;
+}
+
+#square-three,
+#square-six,
+#square-nine {
+  border-right: 0px;
 }
 
 .space-button {
     height: 200px;
     width: 200px;
     border: 0;
+}
+
+.game-board-container {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .game-board {
