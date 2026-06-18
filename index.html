@@ -8,33 +8,35 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <h1>Welcome to Tic-Tac-Toe!</h1>
-    <form action="" method="post">
-        <legend>Input Player Names:</legend>
+    <div class="header">
+        <h1>Welcome to Tic-Tac-Toe!</h1>
+        <form action="" method="post">
+            <legend>Input Player Names:</legend>
 
-        <label for="player_one">Player One:</label>
-        <input type="text" id="player_one" name="player_one" required>
+            <label for="player_one">Player One:</label>
+            <input type="text" id="player_one" name="player_one" required>
 
-        <label for="player_two">Player Two:</label>
-        <input type="text" id="player_two" name="player_two" required>
+            <label for="player_two">Player Two:</label>
+            <input type="text" id="player_two" name="player_two" required>
 
-        <button id="submit_button" type="button">
-            Submit
-            </button>
-    </form>
-
-    <div class="game-board">
-        <button class="square" id="square-one"></button>
-        <button class="square" id="square-two"></button>
-        <button class="square" id="square-three"></button>
-        <button class="square" id="square-four"></button>
-        <button class="square" id="square-five"></button>
-        <button class="square" id="square-six"></button>
-        <button class="square" id="square-seven"></button>
-        <button class="square" id="square-eight"></button>
-        <button class="square" id="square-nine"></button>
+            <button id="submit_button" type="button">
+                Submit
+                </button>
+        </form>
+        <button id="reset-button">Reset Game</button>
     </div>
-
-    <button id="reset-button">Reset Game</button>
+    <div class="game-board-container">
+        <div class="game-board">
+            <button class="square" id="square-one"></button>
+            <button class="square" id="square-two"></button>
+            <button class="square" id="square-three"></button>
+            <button class="square" id="square-four"></button>
+            <button class="square" id="square-five"></button>
+            <button class="square" id="square-six"></button>
+            <button class="square" id="square-seven"></button>
+            <button class="square" id="square-eight"></button>
+            <button class="square" id="square-nine"></button>
+        </div>
+    </div>
 </body>
 </html>
