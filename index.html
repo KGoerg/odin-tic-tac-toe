@@ -10,19 +10,24 @@
 <body>
     <div class="header">
         <h1>Welcome to Tic-Tac-Toe!</h1>
-        <form action="" method="post">
-            <legend>Input Player Names:</legend>
+        <div class="player-management">
+            <form action="" method="post">
+                <legend>Input Player Names:</legend>
 
-            <label for="player_one">Player One:</label>
-            <input type="text" id="player_one" name="player_one" required>
+                <label for="player_one">Player One:</label>
+                <input type="text" id="player_one" name="player_one" required>
 
-            <label for="player_two">Player Two:</label>
-            <input type="text" id="player_two" name="player_two" required>
+                <label for="player_two">Player Two:</label>
+                <input type="text" id="player_two" name="player_two" required>
 
-            <button id="submit_button" type="button">
-                Submit
-                </button>
-        </form>
+                <button id="submit_button" type="button">
+                    Submit Names
+                    </button>
+            </form>
+            <div class="score-board">
+                
+            </div>
+        </div>
         <div class="game-control-buttons">
             <button id="new-round-button">Start New Round</button>
             <button id="reset-button">Reset Game</button>
@@ -39,9 +44,6 @@
             <button class="square" id="square-seven"></button>
             <button class="square" id="square-eight"></button>
             <button class="square" id="square-nine"></button>
-        </div>
-        <div class="score-board">
-            
         </div>
     </div>
 </body>
