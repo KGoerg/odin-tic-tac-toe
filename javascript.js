@@ -42,8 +42,8 @@ const submitButton = document.querySelector("#submit_button");
 const playerOneTextbox = document.getElementById("player_one");
 const playerTwoTextbox = document.getElementById("player_two");
 
-let playerOneSubmission;
-let playerTwoSubmission;
+let playerOneSubmission = "";
+let playerTwoSubmission = "";
 
 function getInputValues() {
     playerOneSubmission = playerOneTextbox.value;
@@ -95,6 +95,9 @@ const squareNine = document.getElementById("square-nine");
 
 //DOM elements for grid buttons
 squareOne.addEventListener("click", () => {
+    if (playerOneSubmission === "" || playerTwoSubmission === "") {
+        alert("Please submit player names.")
+    } else {
     let squareOneIndexOne = 0;
     let squareOneIndexTwo = 0;
     gameFlow(squareOneIndexOne, squareOneIndexTwo);
@@ -102,9 +105,13 @@ squareOne.addEventListener("click", () => {
     squareOne.textContent = getActivePlayer().marker;
     switchPlayerTurn();
     squareOne.disabled = true;
+    }
 });
 
 squareTwo.addEventListener("click", () => {
+    if (playerOneSubmission === "" || playerTwoSubmission === "") {
+        alert("Please submit player names.")
+    } else {
     let squareTwoIndexOne = 0;
     let squareTwoIndexTwo = 1;
     gameFlow(squareTwoIndexOne, squareTwoIndexTwo);
@@ -112,9 +119,13 @@ squareTwo.addEventListener("click", () => {
     squareTwo.textContent = getActivePlayer().marker;
     switchPlayerTurn();
     squareTwo.disabled = true;
+    }
 });
 
 squareThree.addEventListener("click", () => {
+    if (playerOneSubmission === "" || playerTwoSubmission === "") {
+        alert("Please submit player names.")
+    } else {
     let squareThreeIndexOne = 0;
     let squareThreeIndexTwo = 2;
     gameFlow(squareThreeIndexOne, squareThreeIndexTwo);
@@ -122,9 +133,13 @@ squareThree.addEventListener("click", () => {
     squareThree.textContent = getActivePlayer().marker;
     switchPlayerTurn();
     squareThree.disabled = true;
+    }
 });
 
 squareFour.addEventListener("click", () => {
+    if (playerOneSubmission === "" || playerTwoSubmission === "") {
+        alert("Please submit player names.")
+    } else {
     let squareFourIndexOne = 1;
     let squareFourIndexTwo = 0;
     gameFlow(squareFourIndexOne, squareFourIndexTwo);
@@ -132,9 +147,13 @@ squareFour.addEventListener("click", () => {
     squareFour.textContent = getActivePlayer().marker;
     switchPlayerTurn();
     squareFour.disabled = true;
+    }
 });
 
 squareFive.addEventListener("click", () => {
+    if (playerOneSubmission === "" || playerTwoSubmission === "") {
+        alert("Please submit player names.")
+    } else {
     let squareFiveIndexOne = 1;
     let squareFiveIndexTwo = 1;
     gameFlow(squareFiveIndexOne, squareFiveIndexTwo);
@@ -142,9 +161,13 @@ squareFive.addEventListener("click", () => {
     squareFive.textContent = getActivePlayer().marker;
     switchPlayerTurn();
     squareFive.disabled = true;
+    }
 });
 
 squareSix.addEventListener("click", () => {
+    if (playerOneSubmission === "" || playerTwoSubmission === "") {
+        alert("Please submit player names.")
+    } else {
     let squareSixIndexOne = 1;
     let squareSixIndexTwo = 2;
     gameFlow(squareSixIndexOne, squareSixIndexTwo);
@@ -152,9 +175,13 @@ squareSix.addEventListener("click", () => {
     squareSix.textContent = getActivePlayer().marker;
     switchPlayerTurn();
     squareSix.disabled = true;
+    }
 });
 
 squareSeven.addEventListener("click", () => {
+    if (playerOneSubmission === "" || playerTwoSubmission === "") {
+        alert("Please submit player names.")
+    } else {
     let squareSevenIndexOne = 2;
     let squareSevenIndexTwo = 0;
     gameFlow(squareSevenIndexOne, squareSevenIndexTwo);
@@ -162,9 +189,13 @@ squareSeven.addEventListener("click", () => {
     squareSeven.textContent = getActivePlayer().marker;
     switchPlayerTurn();
     squareSeven.disabled = true;
+    }
 });
 
 squareEight.addEventListener("click", () => {
+    if (playerOneSubmission === "" || playerTwoSubmission === "") {
+        alert("Please submit player names.")
+    } else {
     let squareEightIndexOne = 2;
     let squareEightIndexTwo = 1;
     gameFlow(squareEightIndexOne, squareEightIndexTwo);
@@ -172,9 +203,13 @@ squareEight.addEventListener("click", () => {
     squareEight.textContent = getActivePlayer().marker;
     switchPlayerTurn();
     squareEight.disabled = true;
+    }
 });
 
 squareNine.addEventListener("click", () => {
+    if (playerOneSubmission === "" || playerTwoSubmission === "") {
+        alert("Please submit player names.")
+    } else {
     let squareNineIndexOne = 2;
     let squareNineIndexTwo = 2;
     gameFlow(squareNineIndexOne, squareNineIndexTwo);
@@ -182,13 +217,20 @@ squareNine.addEventListener("click", () => {
     squareNine.textContent = getActivePlayer().marker;
     switchPlayerTurn();
     squareNine.disabled = true;
+    }
+});
+
+const newRoundButton = document.getElementById("new-round-button");
+newRoundButton.addEventListener("click", () => {
+    newRound();
+    console.log(gameBoard.board);
 });
 
 const resetButton = document.getElementById("reset-button");
 resetButton.addEventListener("click", () => {
-    resetGame();
+    fullGameReset();
     console.log(gameBoard.board);
-});
+})
 
 const switchPlayerTurn = () => {
     if (gameBoard.turnFailed === true) {
@@ -341,7 +383,7 @@ function resetSquareText() {
     squareNine.textContent = "";
 }
 
-function resetGame() {
+function newRound() {
     gameBoard.resetBoard();
     if (resetTurnNumber() === 1) {
         activePlayer = players[0];
@@ -349,4 +391,8 @@ function resetGame() {
         reEnableSquares();
     }
     gameFlow.gameOverBoolean = false;
+};
+
+function fullGameReset() {
+    window.location.reload();
 };
