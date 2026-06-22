@@ -90,7 +90,7 @@ form {
 }
 
 #reset-button {
-  width: 100px;
+  width: 200px;
 }
 
 legend {
@@ -106,6 +106,7 @@ label {
     height: 200px;
     width: 200px;
     background-color: #FAFAFA;
+    font-size: 8rem;
 }
 
 #square-one,
