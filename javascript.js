@@ -55,6 +55,9 @@ const form = document.querySelector("form");
 submitButton.addEventListener("click", () => {
     form.reportValidity();
     getInputValues();
+    if (playerOneSubmission === "" || playerTwoSubmission === "") {
+        alert("Please input player names.")
+    } else {
     playerOne = createPlayer(playerOneSubmission);
     playerTwo = createPlayer(playerTwoSubmission);
     players = [
@@ -67,6 +70,7 @@ submitButton.addEventListener("click", () => {
             marker: "O",
         }
     ];
+    }
     activePlayer = players[0];
 });
 
