@@ -62,18 +62,6 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 3px 3px 3px lightgray;
 }
 
-.player-management {
-  display: grid;
-  justify-content: space-around;
-}
-
-.score-board {
-  border: 2px solid red;
-  height: 50px;
-  width: 400px;
-  justify-self: center;
-}
-
 .game-control-buttons {
   margin-top: 20px;
   display: flex;
