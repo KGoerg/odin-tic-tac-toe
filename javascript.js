@@ -82,6 +82,19 @@ let playerTwo;
 let players = [];
 let activePlayer;
 
+//New Round and Reset Buttons
+const newRoundButton = document.getElementById("new-round-button");
+newRoundButton.addEventListener("click", () => {
+    newRound();
+    console.log(gameBoard.board);
+});
+
+const resetButton = document.getElementById("reset-button");
+resetButton.addEventListener("click", () => {
+    fullGameReset();
+    console.log(gameBoard.board);
+});
+
 //DOM elements to start playing game
 const squareOne = document.getElementById("square-one");
 const squareTwo = document.getElementById("square-two");
@@ -220,18 +233,6 @@ squareNine.addEventListener("click", () => {
     }
 });
 
-const newRoundButton = document.getElementById("new-round-button");
-newRoundButton.addEventListener("click", () => {
-    newRound();
-    console.log(gameBoard.board);
-});
-
-const resetButton = document.getElementById("reset-button");
-resetButton.addEventListener("click", () => {
-    fullGameReset();
-    console.log(gameBoard.board);
-})
-
 const switchPlayerTurn = () => {
     if (gameBoard.turnFailed === true) {
         console.log("Try again!");
@@ -245,14 +246,19 @@ const getActivePlayer = () => activePlayer;
 const resetTurnNumber = () => turnNumber = 1;
 let turnNumber = 1;
 
+const winnerAnnouncementContainer = document.querySelector(".announce-winner");
+
+const winnerAnnouncement = document.createElement("p");
+winnerAnnouncementContainer.appendChild(winnerAnnouncement);
+
 //Control turn order and rounds
 function gameFlow(index1, index2) {
 
     const getTurnNumber = () => `Turn Number: ${turnNumber}`;
     const increaseTurnNumber = () => turnNumber++;
 
-    const playerOneWins = `Player One: ${playerOne.playerName} wins!`;
-    const playerTwoWins = `Player Two: ${playerTwo.playerName} wins!`;
+    const playerOneWins = `${playerOne.playerName} wins!`;
+    const playerTwoWins = `${playerTwo.playerName} wins!`;
 
     let confirmTie = false;
 
@@ -298,7 +304,7 @@ function gameFlow(index1, index2) {
             gameBoard.board[0][2] === "X" && gameBoard.board[1][1] === "X" && gameBoard.board[2][0] === "X" ) {
             playerOne.increaseWinCount();
             gameFlow.gameOverBoolean = true;
-            return `GAME OVER! ${playerOneWins}`;
+            winnerAnnouncement.textContent = `GAME OVER! ${playerOneWins}`;
         //Determine Player Two winner
         } else if (
             //First column down
@@ -326,11 +332,11 @@ function gameFlow(index1, index2) {
             gameBoard.board[0][2] === "O" && gameBoard.board[1][1] === "O" && gameBoard.board[2][0] === "O" ) {
             playerTwo.increaseWinCount();
             gameFlow.gameOverBoolean = true;
-            return `GAME OVER! ${playerTwoWins}`;
+            winnerAnnouncement.textContent = `GAME OVER! ${playerTwoWins}`;
         } else if (turnNumber === 10) {
             confirmTie = true;
             gameFlow.gameOverBoolean = true;
-            return "It's a tie!";
+            winnerAnnouncement.textContent = "It's a tie!";
         }
     };
 
@@ -389,6 +395,7 @@ function newRound() {
         activePlayer = players[0];
         resetSquareText();
         reEnableSquares();
+        winnerAnnouncement.textContent = "";
     }
     gameFlow.gameOverBoolean = false;
 };
